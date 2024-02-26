@@ -44,6 +44,12 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.neural['1000']};
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
 `;
 
 export const HeaderContainer = styled.div`
