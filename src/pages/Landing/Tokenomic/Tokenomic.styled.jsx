@@ -1,54 +1,82 @@
 import { styled } from 'styled-components';
 
-export const CardIconContainer = styled.div`
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
-  border-radius: 999px;
-  margin-bottom: 24px;
+export const Reminder = styled.div`
+  font-size: 96px;
+  line-height: 64px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.neural['50']};
+`;
 
+export const Chart = styled.div`
+  height: 400px;
+  width: 400px;
+  border-radius: 999px;
+
+  > div {
+    width: 100%;
+    height: 100%;
+    background-color: 800;
+    border-radius: 999px;
+    border: 12px solid ${({ theme }) => theme.colors.neural['900']};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > img {
+      width: 100%;
+      border-radius: 999px;
+      padding: 36px;
+      background-color: ${({ theme }) => theme.colors.neural['800']};
+    }
+  }
+`;
+
+export const ChartInfo = styled.div`
+  background-color: #ffaf1d;
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #0a071e;
+
+    > div {
+      width: 16px;
+      height: 16px;
+      border: 2px solid ${({ theme }) => theme.colors.neural['800']};
+      border-radius: 4px;
+
+      &.solid {
+        background-color: ${({ theme }) => theme.colors.neural['800']};
+      }
+    }
+
+    > span {
+      font-family: 'Open Sans';
+      font-weight: 800;
+      font-size: 20.25px;
+      line-height: 27px;
+      color: #0a071e;
+    }
+  }
+`;
+
+export const ChartContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  > img {
-    width: 30px;
-  }
-`;
-
-export const Card = styled.div`
-  padding: 40px 32px 60px;
-  border-radius: 32px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #191919;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  > p {
-    width: 100%;
-    font-size: 28px;
-    line-height: 42px;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 8px;
-  }
-
-  > span {
-    width: 100%;
-    font-family: 'Caesar Dressing';
-    text-align: center;
-    color: #c8c8c8;
-  }
-`;
-
-export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-  gap: 24px;
+  gap: 32px;
 `;
 
 export const TokenomicTitle = styled.div`
@@ -56,13 +84,13 @@ export const TokenomicTitle = styled.div`
   line-height: 38px;
   text-transform: capitalize;
   text-align: center;
-  color: ${({ theme }) => theme.colors.neural['900']};
+  color: ${({ theme }) => theme.colors.neural['50']};
 `;
 
 export const TokenomicSubTitle = styled.div`
   font-family: 'Caesar Dressing';
   text-align: center;
-  color: ${({ theme }) => theme.colors.neural['900']};
+  color: #f6f6f6;
 `;
 
 export const TokenomicContainer = styled.div`
@@ -75,6 +103,8 @@ export const TokenomicContainer = styled.div`
   flex-direction: column;
   max-width: 1280px;
   gap: 32px;
+  margin-top: 40px;
+  margin-bottom: 80px;
 `;
 
 export const Container = styled.div`
