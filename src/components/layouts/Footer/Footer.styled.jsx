@@ -65,7 +65,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.neural['1000']};
 `;
 
 export const FooterContainer = styled.div`
