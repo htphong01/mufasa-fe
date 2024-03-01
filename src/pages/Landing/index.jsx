@@ -13,8 +13,8 @@ export default function LandingPage() {
       <ScrollingText />
       <Introduction />
       <Feature />
-      <Tokenomic />
-      <Phase />
+      {/* <Tokenomic /> */}
+      {/* <Phase /> */}
     </div>
   );
 }

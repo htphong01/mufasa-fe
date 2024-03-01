@@ -25,6 +25,10 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
 
+  @media screen and (max-width: 768px) {
+    padding: 40px 32px 24px;
+  }
+
   > p {
     width: 100%;
     font-size: 28px;
@@ -49,6 +53,14 @@ export const CardContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   gap: 24px;
+
+  @media screen and (max-width: 1310px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const FeatureTitle = styled.div`
@@ -80,6 +92,15 @@ export const FeatureContainer = styled.div`
   top: 0;
   right: 0;
   left: 0;
+
+  @media screen and (max-width: 1310px) {
+    max-width: 1080px;
+    padding: 0 100px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 0px 24px;
+  }
 `;
 
 export const Container = styled.div`
@@ -88,5 +109,14 @@ export const Container = styled.div`
 
   > img {
     width: 100%;
+
+    @media screen and (max-width: 1310px) {
+      height: 900px;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 1300px;
+    }
   }
 `;

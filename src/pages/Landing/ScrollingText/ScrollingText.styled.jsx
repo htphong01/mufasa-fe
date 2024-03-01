@@ -29,13 +29,25 @@ export const Container = styled.div`
     padding-left: 100%;
     animation: ${slideRightToLeft} 12s linear infinite;
     font-family: 'Caesar Dressing';
+
+    @media screen and (max-width: 928px) {
+      animation-delay: 12s;
+    }
   }
 
   .item2 span {
     animation-delay: 4s;
+
+    @media screen and (max-width: 928px) {
+      animation-delay: 0s;
+    }
   }
 
   .item3 span {
     animation-delay: 8s;
+
+    @media screen and (max-width: 928px) {
+      animation-delay: 6s;
+    }
   }
 `;

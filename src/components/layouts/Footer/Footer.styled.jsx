@@ -1,24 +1,24 @@
 import { styled } from 'styled-components';
 
 export const FooterCommunityContainer = styled.div`
-display: flex;
-flex-direction: column;
-gap: 24px;
-
-> div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 24px;
-  font-family: 'Caesar Dressing';
-  font-size: 24px;
-  line-height: 24px;
 
-  > a {
-    font-size: 16px;
-    color: ${({ theme }) => theme.colors.neural['0']};
+  > div {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    font-family: 'Caesar Dressing';
+    font-size: 24px;
+    line-height: 24px;
+
+    > a {
+      font-size: 16px;
+      color: ${({ theme }) => theme.colors.neural['0']};
+    }
   }
-}
-`
+`;
 
 export const FooterMenuContainer = styled.div`
   display: flex;
@@ -74,6 +74,26 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   max-width: 1092px;
   padding: 96px 0;
+
+  @media screen and (max-width: 1280px) {
+    padding: 96px 100px;
+    max-width: unset;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 46px 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+
+    > div.right {
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
 
   > div.right {
     display: flex;

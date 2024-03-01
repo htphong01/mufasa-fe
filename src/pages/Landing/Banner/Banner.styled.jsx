@@ -16,13 +16,22 @@ export const BuyButton = styled.button`
   font-family: 'Caesar Dressing';
   color: #ffd029;
   text-transform: uppercase;
-  width: 50%
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: fit-content;
+    text-wrap: nowrap;
+  }
 `;
 
 export const BannerDescription = styled.div`
   font-family: 'Caesar Dressing';
   color: ${({ theme }) => theme.colors.neural['800']};
-  width: 80%;
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const BannerHeading = styled.div`
@@ -30,15 +39,23 @@ export const BannerHeading = styled.div`
   line-height: 64px;
   color: ${({ theme }) => theme.colors.neural['900']};
   margin-bottom: 40px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 72px;
+  }
 `;
 
 export const Container = styled.div`
-    position: relative;
+  position: relative;
 
-    > img {
-        width: 100%;
+  > img {
+    width: 100%;
+
+    @media screen and (max-width: 820px) {
+      height: 430px;
+      object-fit: cover;
     }
-
+  }
 
   > div {
     margin: auto;
@@ -51,12 +68,20 @@ export const Container = styled.div`
     left: 0;
     right: 0;
 
+    @media screen and (max-width: 1360px) {
+      padding: 0 100px;
+      max-width: 1280px;
+    }
+
+    @media screen and (max-width: 1024px) {
+      padding: 0 24px;
+    }
+
     > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 16px;
-      width: 50%;
     }
   }
 `;

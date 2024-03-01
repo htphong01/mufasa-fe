@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, HeaderContainer } from './Header.styled';
 import HeaderMenu from './Menu';
+import HeaderMenuMobile from './MenuMobile';
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
           <img src={logoImg} />
         </Link>
         <HeaderMenu />
+        <HeaderMenuMobile />
       </HeaderContainer>
     </Container>
   );

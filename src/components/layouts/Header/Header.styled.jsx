@@ -1,5 +1,51 @@
 import { styled } from 'styled-components';
 
+export const HeaderMenuMobileContainer = styled.div`
+  display: none;
+  padding: 18px;
+  background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
+  height: 48px;
+  width: 56px;
+  border-radius: 4px;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  .bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 100%;
+    height: 3px;
+    background-color: ${({ theme }) => theme.colors.neural['900']};
+    transition: 0.4s;
+  }
+
+  .bar3 {
+    margin: 0;
+  }
+
+  .change .bar1 {
+    transform: translate(0, 7px) rotate(-45deg);
+  }
+
+  .change .bar2 {
+    opacity: 0;
+  }
+
+  .change .bar3 {
+    transform: translate(0, -7px) rotate(45deg);
+  }
+`;
+
 export const BuyButton = styled.button`
   display: flex;
   flex-direction: row;
@@ -36,6 +82,10 @@ export const HeaderMenuContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
@@ -50,6 +100,10 @@ export const Container = styled.div`
   left: 0;
   right: 0;
   z-index: 9990;
+
+  @media screen and (max-width: 768px) {
+    height: 82px;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -59,7 +113,17 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   max-width: 1280px;
 
-  @media screen and (max-width: 768px) {
-    padding: 16px;
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 1360px) {
+    padding: 0 100px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 24px;
   }
 `;
