@@ -39,6 +39,22 @@ export default function Tokenomic() {
             </div>
             <div>Marketing Activities</div>
           </ChartInfo>
+          <div>
+            <ChartInfo>
+              <div>
+                <div className="solid"></div>
+                <span>94%</span>
+              </div>
+              <div>Liquidity Pool</div>
+            </ChartInfo>
+            <ChartInfo>
+              <div>
+                <div></div>
+                <span>6%</span>
+              </div>
+              <div>Marketing Activities</div>
+            </ChartInfo>
+          </div>
         </ChartContainer>
         <Reminder>Don’t forget airdrop grr</Reminder>
       </TokenomicContainer>

@@ -13,6 +13,7 @@ export default function Introduction() {
           <p>
             The Best <br /> Story Parody
           </p>
+          <p className="mobile">The Best Story Parody</p>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus, ut dictum ex
             ultricies. Fusce pulvinar turpis at massa viverra, in suscipit lacus commodo. Lorem ipsum dolor sit amet,
@@ -23,10 +24,18 @@ export default function Introduction() {
           </span>
         </div>
         <div>
-          <img src={mainImg} />
-          <img src={img2} className='image image2' />
-          <img src={img3} className='image image3' />
-          <img src={img4} className='image image4' />
+          <div>
+            <img src={mainImg} />
+            <div className="image image2">
+              <img src={img2} />
+            </div>
+            <div className="image image3">
+              <img src={img3} />
+            </div>
+            <div className="image image4">
+              <img src={img4} />
+            </div>
+          </div>
         </div>
       </IntroductionContainer>
     </Container>
