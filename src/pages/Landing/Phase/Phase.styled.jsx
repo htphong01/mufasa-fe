@@ -13,12 +13,15 @@ export const Card = styled.div`
   }
 
   > div {
-    padding: 48px 32px;
+    padding: 36px 32px;
     background-color: ${({ theme }) => theme.colors.neural['950']};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
     > ul {
+      margin: 0;
+      padding-left: 16px;
+
       > li {
         font-family: 'Caesar Dressing';
         opacity: 0.6;
@@ -46,6 +49,25 @@ export const CardContainer = styled.div`
     grid-auto-columns: 350px;
     overflow-x: scroll;
     grid-template-columns: unset;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: ${({ theme }) => theme.colors.neural['950']};
+      opacity: 0.64;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme.colors.neural['800']};
+    }
+
+    ${Card} {
+      margin-bottom: 12px;
+    }
   }
 
   > div {

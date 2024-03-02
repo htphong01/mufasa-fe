@@ -85,7 +85,7 @@ export const ChartContainer = styled.div`
   gap: 32px;
 
   > div.mobile {
-    display: GRID;
+    display: none;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: auto;
     gap: 32px;
@@ -97,6 +97,10 @@ export const ChartContainer = styled.div`
 
   @media screen and (max-width: 914px) {
     flex-direction: column;
+
+    > div.mobile {
+      display: grid;
+    }
 
     > ${ChartInfo} {
       display: none;
