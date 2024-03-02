@@ -71,7 +71,36 @@ export const IntroductionContainer = styled.div`
 
       > div {
         width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width: 530px) {
+          > img {
+            width: 80%;
+          }
+
+          .image {
+            > img {
+              width: 80%;
+            }
+          }
+        }
+
+        @media screen and (max-width: 438px) {
+          > img {
+            width: 80%;
+          }
+
+          .image {
+            > img {
+              width: 70%;
+            }
+          }
+        }
       }
+      }
+
+      
 
       .image {
         position: absolute;
