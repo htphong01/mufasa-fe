@@ -32,7 +32,7 @@ export const Card = styled.div`
 
 export const CardTitle = styled.div`
   font-size: 48px;
-  line-height: 24px;
+  line-height: 60px;
   text-align: center;
   color: ${({ theme }) => theme.colors.neural['50']};
 `;
