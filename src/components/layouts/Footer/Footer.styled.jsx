@@ -88,10 +88,13 @@ export const FooterContainer = styled.div`
     flex-direction: column;
     gap: 24px;
     align-items: flex-start;
+    max-width: 100vw;
+    overflow-x: hidden;
 
     > div.right {
       justify-content: space-between;
       width: 100%;
+      gap: 12px;
     }
   }
 

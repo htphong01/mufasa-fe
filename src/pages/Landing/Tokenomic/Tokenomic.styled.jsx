@@ -12,6 +12,11 @@ export const Chart = styled.div`
   width: 400px;
   border-radius: 999px;
 
+  @media screen and (max-width: 463px) {
+    width: 360px;
+    height: 360px;
+  }
+
   > div {
     width: 100%;
     height: 100%;
@@ -56,6 +61,7 @@ export const ChartInfo = styled.div`
       height: 16px;
       border: 2px solid ${({ theme }) => theme.colors.neural['800']};
       border-radius: 4px;
+      
 
       &.solid {
         background-color: ${({ theme }) => theme.colors.neural['800']};
@@ -78,11 +84,10 @@ export const ChartContainer = styled.div`
   justify-content: center;
   gap: 32px;
 
-  > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  > div.mobile {
+    display: GRID;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
     gap: 32px;
 
     > ${ChartInfo} {
@@ -99,21 +104,20 @@ export const ChartContainer = styled.div`
 
     > div > {
       ${ChartInfo} {
-        display: flex;
+        display: flex !important;
       }
     }
   }
 
   @media screen and (max-width: 463px) {
-    > div {
+    > div.mobile {
       gap: 12px;
+      width: 100%;
 
       > ${ChartInfo} {
+        display: flex !important;
         flex: 1;
-
-        > div {
-
-        }
+        width: 100%;
       }
     }
   }

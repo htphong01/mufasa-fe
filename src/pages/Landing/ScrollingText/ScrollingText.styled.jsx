@@ -33,6 +33,10 @@ export const Container = styled.div`
     @media screen and (max-width: 928px) {
       animation-delay: 12s;
     }
+
+    @media screen and (max-width: 430px) {
+      display: none;
+    }
   }
 
   .item2 span {
@@ -41,12 +45,21 @@ export const Container = styled.div`
     @media screen and (max-width: 928px) {
       animation-delay: 0s;
     }
+
+    @media screen and (max-width: 430px) {
+      animation-delay: 2s;
+      display: inline-block;
+    }
   }
 
   .item3 span {
     animation-delay: 8s;
 
     @media screen and (max-width: 928px) {
+      animation-delay: 6s;
+    }
+
+    @media screen and (max-width: 430px) {
       animation-delay: 6s;
     }
   }

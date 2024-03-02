@@ -39,7 +39,7 @@ export default function Tokenomic() {
             </div>
             <div>Marketing Activities</div>
           </ChartInfo>
-          <div>
+          <div className='mobile'>
             <ChartInfo>
               <div>
                 <div className="solid"></div>
