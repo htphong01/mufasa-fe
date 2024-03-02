@@ -77,6 +77,46 @@ export const ChartContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 32px;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    > ${ChartInfo} {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 914px) {
+    flex-direction: column;
+
+    > ${ChartInfo} {
+      display: none;
+    }
+
+    > div > {
+      ${ChartInfo} {
+        display: flex;
+      }
+    }
+  }
+
+  @media screen and (max-width: 463px) {
+    > div {
+      gap: 12px;
+
+      > ${ChartInfo} {
+        flex: 1;
+
+        > div {
+
+        }
+      }
+    }
+  }
 `;
 
 export const TokenomicTitle = styled.div`
@@ -105,6 +145,10 @@ export const TokenomicContainer = styled.div`
   gap: 32px;
   margin-top: 40px;
   margin-bottom: 80px;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 24px;
+  }
 `;
 
 export const Container = styled.div`

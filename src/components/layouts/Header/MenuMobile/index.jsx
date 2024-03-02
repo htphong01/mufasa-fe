@@ -1,12 +1,15 @@
-import React, { useRef } from 'react';
-import { HeaderMenuMobileContainer } from '../Header.styled';
+import React, { useRef, useState } from 'react';
+import { HeaderMenuMobileContainer, HeaderMenuMobileList } from '../Header.styled';
 
 export default function HeaderMenuMobile() {
-    const ref = useRef();
+  const ref = useRef();
 
-    const handleChangeIcon = () => {
-        ref.current.classList.toggle('change');
-    }
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const handleChangeIcon = () => {
+    ref.current.classList.toggle('change');
+    setIsOpenMenu(!isOpenMenu);
+  };
 
   return (
     <HeaderMenuMobileContainer>
@@ -15,6 +18,12 @@ export default function HeaderMenuMobile() {
         <div className="bar2"></div>
         <div className="bar3"></div>
       </div>
+      {isOpenMenu && (
+        <HeaderMenuMobileList>
+          <a href="/Forest">FOREST</a>
+          <a href="/airdrop">AIRDROP</a>
+        </HeaderMenuMobileList>
+      )}
     </HeaderMenuMobileContainer>
   );
 }

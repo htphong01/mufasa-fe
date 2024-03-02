@@ -20,7 +20,7 @@ export const IntroductionContainer = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    padding: 96px 16px;
+    padding: 96px 24px;
   }
 
   > div {

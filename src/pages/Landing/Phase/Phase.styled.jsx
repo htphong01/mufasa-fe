@@ -41,6 +41,13 @@ export const CardContainer = styled.div`
   gap: 32px;
   width: 100%;
 
+  @media screen and (max-width: 1085px) {
+    grid-auto-flow: column;
+    grid-auto-columns: 350px;
+    overflow-x: scroll;
+    grid-template-columns: unset;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -78,6 +85,17 @@ export const PhaseContainer = styled.div`
   top: 0;
   right: 0;
   left: 0;
+
+  padding: 0 24px;
+
+  @media screen and (max-width: 1360px) {
+    padding: 0 100px;
+    max-width: 1280px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 24px;
+  }
 `;
 
 export const Container = styled.div`
@@ -86,5 +104,10 @@ export const Container = styled.div`
 
   > img {
     width: 100%;
+
+    @media screen and (max-width: 1260px) {
+      height: 650px;
+      object-fit: cover;
+    }
   }
 `;

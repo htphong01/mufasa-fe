@@ -1,4 +1,46 @@
-import { styled } from 'styled-components';
+import { styled, keyframes } from 'styled-components';
+
+const slideTopToBottom = keyframes`
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 150px; 
+  }
+`;
+
+export const HeaderMenuMobileList = styled.div`
+  position: fixed;
+  top: 82px;
+  left: 0;
+  right: 0;
+  z-index: 9989;
+  background-color: ${({ theme }) => theme.colors.neural['950']};
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* animation: ${slideTopToBottom} 1s linear; */
+  transition: all 0.5s ease;
+
+  > a {
+    display: block;
+    padding: 8px 16px;
+    color: ${({ theme }) => theme.colors.neural['0']};
+    font-family: 'Caesar Dressing';
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.neural['900']};
+    }
+  }
+`;
 
 export const HeaderMenuMobileContainer = styled.div`
   display: none;
