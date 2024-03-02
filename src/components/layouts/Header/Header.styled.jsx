@@ -23,7 +23,7 @@ export const HeaderMenuMobileList = styled.div`
   align-items: center;
   justify-content: center;
   /* animation: ${slideTopToBottom} 1s linear; */
-  transition: all 0.5s ease;
+  /* transition: all 0.3s ease; */
 
   > a {
     display: block;
