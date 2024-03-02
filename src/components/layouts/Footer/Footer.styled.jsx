@@ -94,7 +94,7 @@ export const FooterContainer = styled.div`
     > div.right {
       justify-content: space-between;
       width: 100%;
-      gap: 12px;
+      gap: 12px !important;
     }
   }
 
