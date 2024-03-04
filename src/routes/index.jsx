@@ -1,6 +1,6 @@
 import Layout from '@/components/layouts';
 import LandingPage from '@/pages/Landing';
-import ClaimPage from '@/pages/Claim';
+import AirdropPage from '@/pages/Airdrop';
 
 export const userRoutes = [
   {
@@ -12,8 +12,8 @@ export const userRoutes = [
         element: <LandingPage />,
       },
       {
-        path: '/claim',
-        element: <ClaimPage />,
+        path: '/airdrop',
+        element: <AirdropPage />,
       },
     ],
   },

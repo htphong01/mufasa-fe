@@ -65,6 +65,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: ${props => props.dark ? 'linear-gradient(180deg, #0D0D0D 0%, rgba(13, 13, 13, 0.67) 100%)' : 'transparent'};
 `;
 
 export const FooterContainer = styled.div`

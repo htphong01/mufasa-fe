@@ -98,6 +98,7 @@ export const BuyButton = styled.button`
   background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
   border-radius: 4px;
   font-family: 'Caesar Dressing';
+  color: ${({ theme }) => theme.colors.neural['900']};
 `;
 
 export const MenuItemList = styled.div`
