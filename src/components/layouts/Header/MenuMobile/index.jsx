@@ -1,10 +1,18 @@
 import React, { useRef, useState } from 'react';
 import { HeaderMenuMobileContainer, HeaderMenuMobileList } from '../Header.styled';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function HeaderMenuMobile() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const ref = useRef();
 
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const handleNavigate = (route) => {
+    setIsOpenMenu(!isOpenMenu)
+    handleChangeIcon();
+  }
 
   const handleChangeIcon = () => {
     ref.current.classList.toggle('change');
@@ -20,8 +28,8 @@ export default function HeaderMenuMobile() {
       </div>
       {isOpenMenu && (
         <HeaderMenuMobileList>
-          <a href="/Forest">FOREST</a>
-          <a href="/airdrop">AIRDROP</a>
+          <Link to="/forest">FOREST</Link>
+          <Link to="/airdrop" onClick={handleNavigate}>AIRDROP</Link>
         </HeaderMenuMobileList>
       )}
     </HeaderMenuMobileContainer>

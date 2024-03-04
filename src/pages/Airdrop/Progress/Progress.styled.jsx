@@ -41,6 +41,10 @@ export const ProgressLabel = styled.div`
   justify-content: space-between;
   gap: 160px;
 
+  @media screen and (max-width: 450px) {
+    gap: unset;
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -76,6 +80,15 @@ export const ProgressContainer = styled.div`
   display: flex;
   max-width: 1092px;
   padding: 96px 0 24px;
+
+  @media screen and (max-width: 1310px) {
+    max-width: unset;
+    padding: 96px 100px 24px;
+  }
+
+  @media screen and (max-width: 1130px) {
+    padding: 96px 24px 24px;
+  }
 `;
 
 export const Container = styled.div`
