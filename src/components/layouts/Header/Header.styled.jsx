@@ -160,6 +160,10 @@ export const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    > img {
+      height: 56px;
+    }
   }
 
   @media screen and (max-width: 1360px) {

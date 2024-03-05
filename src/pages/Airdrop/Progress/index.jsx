@@ -26,6 +26,7 @@ export default function Progress() {
     } catch (error) {
       const txError = parseMetamaskError(error);
       setIsLoading(false);
+      alert(txError.context)
       toast.error(txError.context);
     }
   };

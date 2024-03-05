@@ -47,6 +47,7 @@ export const FooterLogoContainer = styled.div`
 
   > a {
     img {
+      height: 56px;
     }
   }
 
