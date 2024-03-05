@@ -13,8 +13,6 @@ export default function Footer() {
 
   const location = useLocation();
 
-  console.log(location)
-
   return (
     <Container dark={footerDarkBackground.includes(location.pathname)}>
       <FooterContainer>
