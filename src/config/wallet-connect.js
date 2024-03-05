@@ -12,12 +12,19 @@ const chains = [
     explorerUrl: "https://etherscan.io",
     rpcUrl: "https://cloudflare-eth.com",
   },
+  // {
+  //   chainId: 97,
+  //   name: "BSC Testnet",
+  //   currency: "tBNB",
+  //   explorerUrl: "https://testnet.bscscan.com/",
+  //   rpcUrl: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+  // },
   {
-    chainId: 97,
-    name: "BSC Testnet",
-    currency: "tBNB",
-    explorerUrl: "https://testnet.bscscan.com/",
-    rpcUrl: "https://data-seed-prebsc-1-s1.bnbchain.org:8545",
+    chainId: 2522,
+    name: "Fraxtal Testnet",
+    currency: "frxETH",
+    explorerUrl: "https://holesky.fraxscan.com",
+    rpcUrl: "https://rpc.testnet.frax.com",
   },
 ];
 
