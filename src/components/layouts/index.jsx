@@ -6,7 +6,7 @@ import Header from './Header';
 export default function Layout() {
   return (
     <div className="app">
-      <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 2500 }} />
+      <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 12500 }} containerClassName='toast-container' />
       <Header />
       <div className="app-content">
         <Outlet />
