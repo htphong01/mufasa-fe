@@ -8,18 +8,18 @@ export default function FooterCommunity() {
     <FooterCommunityContainer>
       <div>JOIN OUR COMMUNITY</div>
       <div>
-        <Link to="#">
+        <a target="_blank" href="#">
           <Icon fontSize={32} icon="mingcute:youtube-fill" />
-        </Link>
-        <Link to="https://t.me/mufasalol">
+        </a>
+        <a target="_blank" href="https://t.me/mufasalol">
           <Icon fontSize={32} icon="ic:baseline-telegram" />
-        </Link>
-        <Link to="https://x.com/mufasalol_?t=tpxt09CGS2DuqfPBB7nhsg&s=09">
+        </a>
+        <a target="_blank" href="https://x.com/mufasalol_?t=tpxt09CGS2DuqfPBB7nhsg&s=09">
           <Icon fontSize={32} icon="mdi:twitter" />
-        </Link>
-        <Link to="#">
+        </a>
+        <a target="_blank" href="#">
           <Icon fontSize={32} icon="ic:baseline-discord" />
-        </Link>
+        </a>
       </div>
     </FooterCommunityContainer>
   );
