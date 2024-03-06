@@ -11,10 +11,10 @@ export default function FooterCommunity() {
         <Link to="#">
           <Icon fontSize={32} icon="mingcute:youtube-fill" />
         </Link>
-        <Link to="#">
-          <Icon fontSize={32} icon="mdi:instagram" />
+        <Link to="https://t.me/mufasalol">
+          <Icon fontSize={32} icon="ic:baseline-telegram" />
         </Link>
-        <Link to="#">
+        <Link to="https://x.com/mufasalol_?t=tpxt09CGS2DuqfPBB7nhsg&s=09">
           <Icon fontSize={32} icon="mdi:twitter" />
         </Link>
         <Link to="#">
