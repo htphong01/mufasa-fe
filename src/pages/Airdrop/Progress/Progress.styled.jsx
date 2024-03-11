@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 export const ClaimButton = styled.div`
   display: flex;
-  margin: 24px auto 96px;
+  margin: 24px auto 24px;
   flex-direction: row;
   justify-content: center;
   align-items: center;

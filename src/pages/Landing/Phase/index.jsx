@@ -7,7 +7,7 @@ export default function Phase() {
     <Container>
       <img src={phaseBanner} />
       <PhaseContainer>
-        <PhaseTitle>TOKENOMIC</PhaseTitle>
+        <PhaseTitle>ROADMAP</PhaseTitle>
         <PhaseSubTitle>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus.
         </PhaseSubTitle>
@@ -18,47 +18,38 @@ export default function Phase() {
               <p></p>
               <div>
                 <ul>
-                  <li>Research (visual, chain, marketing strategy, & partners)</li>
-                  <li>UX & UI for DEX</li>
-                  <li>Marketing Planning</li>
-                  <li>Community Managing Planning</li>
-                  <li>Social Channel Set-up</li>
-                  <li>Partners List Collecting</li>
-                  <li>Reach Out NAME</li>
+                  <li>Stage 1 - Assemble Team</li>
+                  <li>Stage 2 - Socials</li>
+                  <li>Stage 3 - Marketing Campaign</li>
+                  <li>Stage 4 - Community building </li>
                 </ul>
               </div>
             </Card>
           </div>
           <div>
-            <CardTitle>PHASE 1</CardTitle>
+            <CardTitle>PHASE 2</CardTitle>
             <Card>
               <p></p>
               <div>
                 <ul>
-                  <li>Research (visual, chain, marketing strategy, & partners)</li>
-                  <li>UX & UI for DEX</li>
-                  <li>Marketing Planning</li>
-                  <li>Community Managing Planning</li>
-                  <li>Social Channel Set-up</li>
-                  <li>Partners List Collecting</li>
-                  <li>Reach Out NAME</li>
+                  <li>Stage 5 - Introduced Mufasa </li>
+                  <li>Stage 6 - Listing Sites</li>
+                  <li>Stage 7 - CEX Listings</li>
+                  <li>Stage 8 - Airdrop</li>
                 </ul>
               </div>
             </Card>
           </div>
           <div>
-            <CardTitle>PHASE 1</CardTitle>
+            <CardTitle>PHASE 3</CardTitle>
             <Card>
               <p></p>
               <div>
                 <ul>
-                  <li>Research (visual, chain, marketing strategy, & partners)</li>
-                  <li>UX & UI for DEX</li>
-                  <li>Marketing Planning</li>
-                  <li>Community Managing Planning</li>
-                  <li>Social Channel Set-up</li>
-                  <li>Partners List Collecting</li>
-                  <li>Reach Out NAME</li>
+                  <li>Stage 9 - Partnerships</li>
+                  <li>Stage 10 - Ecosystem building</li>
+                  <li>Stage 11 - Mufasa Governance</li>
+                  <li>Stage 12 - more to come.</li>
                 </ul>
               </div>
             </Card>

@@ -110,9 +110,13 @@ export const Container = styled.div`
   > img {
     width: 100%;
 
-    @media screen and (max-width: 1310px) {
+    @media screen and (max-width: 1370px) {
       height: 900px;
       object-fit: cover;
+    }
+
+    @media screen and (max-width: 900px) {
+      height: 1000px;
     }
 
     @media screen and (max-width: 768px) {

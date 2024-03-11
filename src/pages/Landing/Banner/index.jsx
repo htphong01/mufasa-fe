@@ -13,8 +13,9 @@ export default function Banner() {
             <br /> Parody
           </BannerHeading>
           <BannerDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus, ut dictum ex
-            ultricies. Fusce pulvinar turpis at massa viverra, in suscipit lacus commodo.
+            The king of memes is here - well trained to respect the Circle of Memes, waited for other memes to have
+            their time in the space and it's time for MUFASA to rule as the king and to take responsibility for his
+            kingdom and subjects.
           </BannerDescription>
           <BuyButton>buyyyyyyy grrrrr</BuyButton>
         </div>

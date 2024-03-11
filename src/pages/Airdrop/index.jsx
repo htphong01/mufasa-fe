@@ -1,12 +1,14 @@
-import React from 'react'
-import Tutorial from './Tutorial'
-import Progress from './Progress'
+import React from 'react';
+import Tutorial from './Tutorial';
+import Progress from './Progress';
+import Introduction from './Introduction';
 
 export default function AirdropPage() {
   return (
     <div>
-      <Tutorial />
       <Progress />
+      <Introduction />
+      <Tutorial />
     </div>
-  )
+  );
 }

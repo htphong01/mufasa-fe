@@ -11,16 +11,16 @@ export default function Introduction() {
       <IntroductionContainer>
         <div>
           <p>
-            The Best <br /> Story Parody
+            Our <br /> Mission
           </p>
-          <p className="mobile">The Best Story Parody</p>
+          <p className="mobile">Our Mission</p>
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus, ut dictum ex
-            ultricies. Fusce pulvinar turpis at massa viverra, in suscipit lacus commodo. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed dapibus mauris id ante dapibus, ut dictum ex ultricies. Fusce pulvinar
-            turpis at massa viverra, in suscipit lacus commodo.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed dapibus mauris id ante dapibus, ut dictum ex ultricies. Fusce pulvinar turpis at massa viverra, in
-            suscipit lacus
+            Bringing meme to Fraxtal and, at the same time, incentive FXTL points to make sure Fraxtal is one of the
+            most important blockchains in the crypto space.
+            <br />
+            <br />
+            Mufasa will boast the Frax Finance ecosystem and encourage the developers to deploy on Fraxtal and at the
+            same time rewarding the users of Dapps on Fraxtal.
           </span>
         </div>
         <div>
