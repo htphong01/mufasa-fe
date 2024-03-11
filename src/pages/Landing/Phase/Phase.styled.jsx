@@ -126,10 +126,11 @@ export const Container = styled.div`
 
   > img {
     width: 100%;
+    height: 600px;
+    object-fit: cover;
 
     @media screen and (max-width: 1260px) {
       height: 650px;
-      object-fit: cover;
     }
   }
 `;
