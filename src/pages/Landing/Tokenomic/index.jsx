@@ -10,15 +10,16 @@ import {
   TokenomicTitle,
 } from './Tokenomic.styled';
 import iconImg from '@/assets/images/svg/icon.svg';
+import tokenomicChartImg from '@/assets/images/png/tokenomic-chart.png';
 
 export default function Tokenomic() {
   return (
     <Container>
       <TokenomicContainer>
         <TokenomicTitle>TOKENOMIC</TokenomicTitle>
-        <TokenomicSubTitle>
+        {/* <TokenomicSubTitle>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus
-        </TokenomicSubTitle>
+        </TokenomicSubTitle> */}
         <ChartContainer>
           <ChartInfo>
             <div>
@@ -27,11 +28,7 @@ export default function Tokenomic() {
             </div>
             <div>Liquidity Pool</div>
           </ChartInfo>
-          <Chart>
-            <div>
-              <img src={iconImg} />
-            </div>
-          </Chart>
+          <img src={tokenomicChartImg} />
           <ChartInfo>
             <div>
               <div></div>
@@ -39,7 +36,7 @@ export default function Tokenomic() {
             </div>
             <div>Marketing Activities</div>
           </ChartInfo>
-          <div className='mobile'>
+          <div className="mobile">
             <ChartInfo>
               <div>
                 <div className="solid"></div>

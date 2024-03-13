@@ -8,9 +8,9 @@ export default function Phase() {
       <img src={phaseBanner} />
       <PhaseContainer>
         <PhaseTitle>ROADMAP</PhaseTitle>
-        <PhaseSubTitle>
+        {/* <PhaseSubTitle>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus.
-        </PhaseSubTitle>
+        </PhaseSubTitle> */}
         <CardContainer>
           <div>
             <CardTitle>PHASE 1</CardTitle>
