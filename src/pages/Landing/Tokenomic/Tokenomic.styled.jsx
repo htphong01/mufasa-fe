@@ -38,7 +38,7 @@ export const Chart = styled.div`
 `;
 
 export const ChartInfo = styled.div`
-  background-color: #ffaf1d;
+  background-color: #efefef;
   width: 200px;
   padding: 20px;
   display: flex;
@@ -61,10 +61,9 @@ export const ChartInfo = styled.div`
       height: 16px;
       border: 2px solid ${({ theme }) => theme.colors.neural['800']};
       border-radius: 4px;
-      
 
       &.solid {
-        background-color: ${({ theme }) => theme.colors.neural['800']};
+        background-color: ${props => props.solidColor ? props.solidColor : '#333333'};
       }
     }
 
@@ -75,6 +74,17 @@ export const ChartInfo = styled.div`
       line-height: 27px;
       color: #0a071e;
     }
+  }
+`;
+
+export const ChartInfoContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  gap: 32px;
+
+  @media screen and (max-width: 914px) {
+    display: none;
   }
 `;
 

@@ -3,6 +3,7 @@ import {
   Chart,
   ChartContainer,
   ChartInfo,
+  ChartInfoContainer,
   Container,
   Reminder,
   TokenomicContainer,
@@ -21,35 +22,95 @@ export default function Tokenomic() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus mauris id ante dapibus
         </TokenomicSubTitle> */}
         <ChartContainer>
-          <ChartInfo>
-            <div>
-              <div className="solid"></div>
-              <span>94%</span>
-            </div>
-            <div>Liquidity Pool</div>
-          </ChartInfo>
-          <img src={tokenomicChartImg} />
-          <ChartInfo>
-            <div>
-              <div></div>
-              <span>6%</span>
-            </div>
-            <div>Marketing Activities</div>
-          </ChartInfo>
-          <div className="mobile">
-            <ChartInfo>
+          <ChartInfoContainer>
+            <ChartInfo solidColor="#DE6E6A">
               <div>
                 <div className="solid"></div>
-                <span>94%</span>
+                <span>15%</span>
               </div>
-              <div>Liquidity Pool</div>
+              <div>Staking Reward</div>
             </ChartInfo>
-            <ChartInfo>
+            <ChartInfo solidColor="#84BFDB">
               <div>
-                <div></div>
-                <span>6%</span>
+                <div className="solid"></div>
+                <span>10%</span>
               </div>
-              <div>Marketing Activities</div>
+              <div>Team</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#599F76">
+              <div>
+                <div className="solid"></div>
+                <span>5%</span>
+              </div>
+              <div>Marketing</div>
+            </ChartInfo>
+          </ChartInfoContainer>
+          <img src={tokenomicChartImg} />
+          <ChartInfoContainer>
+            <ChartInfo solidColor="#9EC97F">
+              <div>
+                <div className="solid"></div>
+                <span>40%</span>
+              </div>
+              <div>Liquidity</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#5971C0">
+              <div>
+                <div className="solid"></div>
+                <span>10%</span>
+              </div>
+              <div>Airdrop</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#F3C96B">
+              <div>
+                <div className="solid"></div>
+                <span>20%</span>
+              </div>
+              <div>Mufasa ecosystem</div>
+            </ChartInfo>
+          </ChartInfoContainer>
+          <div className="mobile">
+            <ChartInfo solidColor="#DE6E6A">
+              <div>
+                <div className="solid"></div>
+                <span>15%</span>
+              </div>
+              <div>Staking Reward</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#9EC97F">
+              <div>
+                <div className="solid"></div>
+                <span>40%</span>
+              </div>
+              <div>Liquidity</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#84BFDB">
+              <div>
+                <div className="solid"></div>
+                <span>10%</span>
+              </div>
+              <div>Team</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#5971C0">
+              <div>
+                <div className="solid"></div>
+                <span>10%</span>
+              </div>
+              <div>Airdrop</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#599F76">
+              <div>
+                <div className="solid"></div>
+                <span>5%</span>
+              </div>
+              <div>Marketing</div>
+            </ChartInfo>
+            <ChartInfo solidColor="#F3C96B">
+              <div>
+                <div className="solid"></div>
+                <span>20%</span>
+              </div>
+              <div>Mufasa ecosystem</div>
             </ChartInfo>
           </div>
         </ChartContainer>

@@ -1,6 +1,7 @@
 import Layout from '@/components/layouts';
 import LandingPage from '@/pages/Landing';
 import AirdropPage from '@/pages/Airdrop';
+import ComingSoonPage from '../pages/ComingSoon';
 
 export const userRoutes = [
   {
@@ -13,7 +14,11 @@ export const userRoutes = [
       },
       {
         path: '/airdrop',
-        element: <AirdropPage />,
+        element: <ComingSoonPage />,
+      },
+      {
+        path: '/forest',
+        element: <ComingSoonPage />,
       },
     ],
   },
