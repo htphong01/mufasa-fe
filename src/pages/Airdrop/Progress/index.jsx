@@ -1,32 +1,35 @@
-import { writeContract } from '@/utils/contracts/airdrop';
-import { parseMetamaskError } from '@/utils/convert';
-import { useWeb3Modal, useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/react';
-import { BrowserProvider } from 'ethers';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import ReactLoading from 'react-loading';
+import { airdrop, setAdmin } from '@/utils/contracts/airdrop';
+import { getAssociatedTokenAccount } from '@/utils/contracts/spl-token';
 import { ClaimButton, Container, ProgressBar, ProgressContainer, ProgressLabel } from './Progress.styled';
 
 export default function Progress() {
+  
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const { setVisible } = useWalletModal();
 
-  const { open, close } = useWeb3Modal();
-  const { address, isConnected } = useWeb3ModalAccount();
-  const { walletProvider } = useWeb3ModalProvider();
+  const { publicKey, disconnect, wallet } = useWallet();
+
+  const handleConnect = () => {
+    setVisible(true);
+  }
 
   const handleClaim = async () => {
     try {
       setIsLoading(true);
-      const provider = new BrowserProvider(walletProvider);
-      const signer = await provider.getSigner();
-      const tx = await writeContract(signer, 'claim');
-      console.log('claim', tx);
+      // setAdmin()
+      const address = await getAssociatedTokenAccount(publicKey);
+      console.log('wallet', address.address.toString())
       toast.success('Claim successfully');
-    } catch (error) {
-      const txError = parseMetamaskError(error);
       setIsLoading(false);
-      toast.error(txError.context);
+    } catch (error) {
+      console.log(error)
+      setIsLoading(false);
     }
   };
 
@@ -52,8 +55,9 @@ export default function Progress() {
         <ProgressBar width={progress}>
           <div></div>
         </ProgressBar>
-        <ClaimButton onClick={isConnected ? handleClaim : open}>
-          <span>buyyyyyyy grrrrr</span>
+        <ClaimButton onClick={publicKey ? handleClaim : handleConnect}>
+        {/* <ClaimButton onClick={disconnect}> */}
+          <span>{publicKey ? 'buyyyyyyy grrrrr' : 'Connect to buy'}</span>
         </ClaimButton>
       </ProgressContainer>
     </Container>

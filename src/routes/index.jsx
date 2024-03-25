@@ -14,7 +14,7 @@ export const userRoutes = [
       },
       {
         path: '/airdrop',
-        element: <ComingSoonPage />,
+        element: <AirdropPage />,
       },
       {
         path: '/forest',

@@ -1,0 +1,450 @@
+{
+    "version": "0.1.0",
+    "name": "solana_airdrop",
+    "instructions": [
+        {
+            "name": "initialize",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "admin",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "admin",
+                    "type": {
+                        "vec": "publicKey"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "addAdmin",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "admin",
+                    "isMut": true,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "admin",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "removeAdmin",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "admin",
+                    "isMut": true,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "admin",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "newAirdrop",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "airdrop",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "mint",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenVault",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "admin",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "root",
+                    "type": {
+                        "array": [
+                            "u8",
+                            32
+                        ]
+                    }
+                },
+                {
+                    "name": "startTime",
+                    "type": "i64"
+                },
+                {
+                    "name": "endTime",
+                    "type": "i64"
+                }
+            ]
+        },
+        {
+            "name": "claim",
+            "accounts": [
+                {
+                    "name": "claimant",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "airdrop",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "claimStatus",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "to",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "from",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "amount",
+                    "type": "u64"
+                },
+                {
+                    "name": "amountWithdraw",
+                    "type": "u64"
+                },
+                {
+                    "name": "proof",
+                    "type": {
+                        "vec": {
+                            "array": [
+                                "u8",
+                                32
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "withdraw",
+            "accounts": [
+                {
+                    "name": "claimant",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "airdrop",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "claimStatus",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "to",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "from",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "amount",
+                    "type": "u64"
+                }
+            ]
+        },
+        {
+            "name": "clawback",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "admin",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "airdrop",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "to",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "from",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": []
+        }
+    ],
+    "accounts": [
+        {
+            "name": "Admin",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "bump",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "admin",
+                        "type": {
+                            "vec": "publicKey"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Airdrop",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "bump",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "root",
+                        "type": {
+                            "array": [
+                                "u8",
+                                32
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tokenVault",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "mint",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "withdrawn",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "startTime",
+                        "type": "i64"
+                    },
+                    {
+                        "name": "endTime",
+                        "type": "i64"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ClaimStatus",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "claimant",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "reward",
+                        "docs": [
+                            "total reward"
+                        ],
+                        "type": "u64"
+                    },
+                    {
+                        "name": "withdrawn",
+                        "docs": [
+                            "amount withdrawn"
+                        ],
+                        "type": "u64"
+                    }
+                ]
+            }
+        }
+    ],
+    "events": [
+        {
+            "name": "ClaimEvent",
+            "fields": [
+                {
+                    "name": "claimant",
+                    "type": "publicKey",
+                    "index": false
+                },
+                {
+                    "name": "amount",
+                    "type": "u64",
+                    "index": false
+                }
+            ]
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "AdminsExceedMaxSize",
+            "msg": "Admins exceed max size"
+        },
+        {
+            "code": 6001,
+            "name": "ContractInitialized",
+            "msg": "Contract already initialized"
+        },
+        {
+            "code": 6002,
+            "name": "RequireAdmin",
+            "msg": "Require admin"
+        },
+        {
+            "code": 6003,
+            "name": "AirdropExpired",
+            "msg": "Airdrop expired"
+        },
+        {
+            "code": 6004,
+            "name": "InvalidClawback",
+            "msg": "Can only clawback expired airdrop"
+        },
+        {
+            "code": 6005,
+            "name": "AirdropNotStarted",
+            "msg": "Airdrop has not started"
+        },
+        {
+            "code": 6006,
+            "name": "InvalidProof",
+            "msg": "Invalid Merkle proof"
+        },
+        {
+            "code": 6007,
+            "name": "OverdrawnBalance",
+            "msg": "Overdrawn balance"
+        },
+        {
+            "code": 6008,
+            "name": "StartTimestampLessThanEnd",
+            "msg": "Start Timestamp cannot be after end Timestamp"
+        },
+        {
+            "code": 6009,
+            "name": "TimestampsLessThanNow",
+            "msg": "Timestamps must greater than now"
+        },
+        {
+            "code": 6010,
+            "name": "ArithmeticError",
+            "msg": "Arithmetic Error (overflow/underflow)"
+        },
+        {
+            "code": 6011,
+            "name": "AirdropNameExceedMaxSize",
+            "msg": "Airdrop name excced max size"
+        }
+    ],
+    "metadata": {
+        "address": "5CB6yYLhUy9M9BMxBAhP2kgT8wf4WutU8V1QeVjHWExk"
+    }
+}

@@ -1,15 +1,19 @@
+import { useWallet } from '@solana/wallet-adapter-react';
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { BuyButton, HeaderMenuContainer, MenuItemList } from '../Header.styled';
-import { Link } from 'react-router-dom';
 
 export default function HeaderMenu() {
+  const { publicKey, disconnect } = useWallet();
+  const navigate = useNavigate();
+
   return (
     <HeaderMenuContainer>
       <MenuItemList>
         <Link to="/forest">FOREST</Link>
         <Link to="/airdrop">AIRDROP</Link>
       </MenuItemList>
-      <BuyButton>buyyyyyyy grrrrr</BuyButton>
+      <BuyButton onClick={publicKey ? disconnect : () => navigate('/airdrop')}>{publicKey ? 'Disconnect' : 'buyyyyyyy grrrrr'}</BuyButton>
     </HeaderMenuContainer>
   );
 }

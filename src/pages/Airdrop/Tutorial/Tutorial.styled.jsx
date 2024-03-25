@@ -8,7 +8,7 @@ export const InstructionContainer = styled.div`
   gap: 4px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #191919;
   border-radius: 16px;
-  padding: 48px;
+  padding: 24px 48px;
   overflow: hidden;
 
   > div {
@@ -16,13 +16,36 @@ export const InstructionContainer = styled.div`
     text-align: center;
     text-wrap: wrap;
 
-    &:first-child {
-      background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
+    &.flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      .text-left {
+        text-align: left;
+      }
     }
+
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 24px;
+      background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
+      border-radius: 4px;
+      font-family: 'Caesar Dressing';
+      color: ${({ theme }) => theme.colors.neural['900']};
+    }
+  }
+
+  .yellow {
+    background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
 `;
 
@@ -40,6 +63,12 @@ export const ImageContainer = styled.div`
     @media screen and (max-width: 768px) {
       font-size: 48px;
     }
+  }
+
+  > img {
+    max-height: 200px;
+    width: 100%;
+    object-fit: cover;
   }
 `;
 
