@@ -3,6 +3,7 @@ import airdropIdl from '@/resources/idl/airdrop.json';
 import { commitmentLevel, connection } from './sol';
 import { PublicKey } from '@solana/web3.js';
 import { getAssociatedTokenAccount } from './spl-token';
+import * as splToken from '@solana/spl-token';
 
 export const airdropProgramId = new PublicKey(airdropIdl.metadata.address);
 export const airdropInterface = JSON.parse(JSON.stringify(airdropIdl));
@@ -48,8 +49,8 @@ export const airdrop = async (wallet) => {
         claimStatus: claimStatusPDA,
         to: claimantTokenAccount,
         from: AIRDROP_TOKEN_VAULT_ADDRESS,
-        tokenProgram: MUFASA_TOKEN_ADDRESS,
-        systemProgram: AIRDROP_ADDRESS,
+        tokenProgram: splToken.TOKEN_PROGRAM_ID,
+        systemProgram: web3.SystemProgram.programId,
       })
       .rpc();
     return tx;
