@@ -1,4 +1,4 @@
-import { useWallet } from '@solana/wallet-adapter-react';
+import { useAnchorWallet, useWallet } from '@solana/wallet-adapter-react';
 import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -13,7 +13,8 @@ export default function Progress() {
   const [isLoading, setIsLoading] = useState(false);
   const { setVisible } = useWalletModal();
 
-  const { publicKey, disconnect, wallet } = useWallet();
+  const { publicKey } = useWallet();
+  const wallet = useAnchorWallet();
 
   const handleConnect = () => {
     setVisible(true);
@@ -23,8 +24,7 @@ export default function Progress() {
     try {
       setIsLoading(true);
       // setAdmin()
-      const address = await getAssociatedTokenAccount(publicKey);
-      console.log('wallet', address.address.toString())
+      const tx = await airdrop(wallet);
       toast.success('Claim successfully');
       setIsLoading(false);
     } catch (error) {
