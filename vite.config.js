@@ -14,9 +14,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      crypto: 'crypto-browserify',
     },
   },
   define: {
-    'process.env': {}
+    'process.env': {},
+    global: {},
   }
 });

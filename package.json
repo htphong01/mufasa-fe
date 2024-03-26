@@ -10,6 +10,7 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
+    "@coral-xyz/anchor": "^0.29.0",
     "@iconify/react": "^4.1.1",
     "@project-serum/anchor": "^0.22.1",
     "@solana/spl-token": "^0.4.3",
@@ -20,6 +21,7 @@
     "@solana/web3.js": "^1.91.1",
     "@web3modal/ethers": "^4.0.10",
     "axios": "^1.6.2",
+    "buffer": "^6.0.3",
     "ethers": "^6.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

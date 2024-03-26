@@ -1,10 +1,9 @@
+import { airdrop } from '@/utils/contracts/airdrop';
 import { useAnchorWallet, useWallet } from '@solana/wallet-adapter-react';
 import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import ReactLoading from 'react-loading';
-import { airdrop, setAdmin } from '@/utils/contracts/airdrop';
-import { getAssociatedTokenAccount } from '@/utils/contracts/spl-token';
 import { ClaimButton, Container, ProgressBar, ProgressContainer, ProgressLabel } from './Progress.styled';
 
 export default function Progress() {
@@ -23,7 +22,6 @@ export default function Progress() {
   const handleClaim = async () => {
     try {
       setIsLoading(true);
-      // setAdmin()
       const tx = await airdrop(wallet);
       toast.success('Claim successfully');
       setIsLoading(false);
