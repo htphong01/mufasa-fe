@@ -48,7 +48,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 40px;
   z-index: 9998;
+}
+
+.screen-loading-overlay > div {
+  font-size: 32px;
 }
 
 .react-loading-item {

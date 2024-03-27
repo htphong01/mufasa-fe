@@ -5,11 +5,12 @@ export const InstructionContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  gap: 4px;
+  gap: 12px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #191919;
   border-radius: 16px;
   padding: 24px 48px;
   overflow: hidden;
+  position: relative;
 
   > div {
     font-family: 'Caesar Dressing';
@@ -46,6 +47,10 @@ export const InstructionContainer = styled.div`
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+  }
+
+  .small {
+    font-size: 12px;
   }
 `;
 
@@ -97,6 +102,18 @@ export const TutorialContainer = styled.div`
   @media screen and (max-width: 768px) {
     padding-top: 0;
   }
+`;
+
+export const RequireConnectWallet = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Container = styled.div`

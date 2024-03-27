@@ -29,6 +29,7 @@
     "react-loading": "^2.0.3",
     "react-loading-skeleton": "^3.3.1",
     "react-router-dom": "^6.20.0",
+    "react-twitter-widgets": "^1.11.0",
     "styled-components": "^6.1.1",
     "usehooks-ts": "^2.9.1"
   },

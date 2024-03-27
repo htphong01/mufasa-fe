@@ -1,10 +1,14 @@
 {
-    "EgKy8zgr4o5fDU17Z36qkXb272YMdpUEx5TpHPwnkQWM": {
+    "2xHV3gtSVnjkJ913nBwk2HyW59M5NQ3vncv54cVN27aZ": {
         "amount": 1000000000000,
         "index": 0
     },
-    "kCB6pc6g42eK8GsUGdVFKAK7xkRiWsgz9KSN1ugdu8r": {
-        "amount": 2911000000000,
+    "HGr2MRXqvPNUmVxanBuxJf7SFo8EivHAMJt2QgNxDsCt": {
+        "amount": 1000000000000,
         "index": 1
+    },
+    "kCB6pc6g42eK8GsUGdVFKAK7xkRiWsgz9KSN1ugdu8r": {
+        "amount": 1000000000000,
+        "index": 2
     }
 }

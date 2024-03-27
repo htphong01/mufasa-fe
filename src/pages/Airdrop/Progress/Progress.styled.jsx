@@ -1,6 +1,24 @@
 import { styled } from 'styled-components';
 
-export const ClaimButton = styled.div`
+export const AlreadyClaim = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > div {
+    font-family: 'Caesar Dressing';
+
+    > span {
+      background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+`;
+
+export const ClaimButton = styled.button`
   display: flex;
   margin: 24px auto 24px;
   flex-direction: row;

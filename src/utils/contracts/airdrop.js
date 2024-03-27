@@ -5,7 +5,7 @@ import { utils } from '@coral-xyz/anchor';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import * as anchor from '@project-serum/anchor';
 import * as splToken from '@solana/spl-token';
-import { Keypair, PublicKey, sendAndConfirmTransaction, Transaction } from '@solana/web3.js';
+import { PublicKey, sendAndConfirmTransaction, Transaction } from '@solana/web3.js';
 import { getProof } from './lib';
 import { commitmentLevel, connection } from './sol';
 import { Buffer } from 'buffer';
@@ -29,7 +29,7 @@ const getProgram = (wallet) => {
 };
 
 const getAirdropInfo = async (payer) => {
-  const { program, provider } = getProgram();
+  const { program } = getProgram();
   const [airdropPDA] = PublicKey.findProgramAddressSync(
     [utils.bytes.utf8.encode('Airdrop'), new PublicKey(MUFASA_TOKEN_ADDRESS).toBuffer()],
     program.programId
@@ -48,23 +48,56 @@ const getAirdropInfo = async (payer) => {
   }
 
   const proof = getProof(claimantInfo.index, MerkleTreeJSON).map((p) => Buffer.from(p, 'hex').toJSON().data);
-
-  let claimantTokenAccount = splToken.getAssociatedTokenAddressSync(airdropData.mint, payer.publicKey);
-
-  if (!claimantTokenAccount) {
-    const transaction = new Transaction().add(
+  let claimantTokenAccount;
+  try {
+    claimantTokenAccount = await splToken.getOrCreateAssociatedTokenAccount(
+      connection,
+      payer,
+      airdropData.mint,
+      payer.publicKey
+    );
+  } catch (error) {
+    const associatedToken = await splToken.getAssociatedTokenAddress(airdropData.mint, payer.publicKey);
+    const tx = new Transaction().add(
       splToken.createAssociatedTokenAccountInstruction(
         payer.publicKey,
-        claimantTokenAccount,
+        associatedToken,
         payer.publicKey,
         airdropData.mint
       )
     );
 
-    await sendAndConfirmTransaction(connection, transaction, [payer], confirmOptions);
+    tx.feePayer = payer.publicKey;
+
+    const latestBlockhash = await connection.getLatestBlockhash();
+    tx.recentBlockhash = latestBlockhash.blockhash;
+    const signedRawTx = await payer.signTransaction(tx);
+
+    const signedTx = signedRawTx.serialize();
+    const signature = await connection.sendRawTransaction(signedTx);
+
+    await connection.confirmTransaction({
+      signature: signature,
+    });
+
+    // await sendAndConfirmTransaction(connection, transaction, [payer], { commitment: 'confirmed' });
+
+    claimantTokenAccount = await splToken.getOrCreateAssociatedTokenAccount(
+      connection,
+      payer,
+      airdropData.mint,
+      payer.publicKey
+    );
   }
 
-  return { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount: claimantInfo.amount };
+  return {
+    airdropPDA,
+    airdropData,
+    claimStatusPDA,
+    proof,
+    claimantTokenAccount: claimantTokenAccount.address,
+    amount: claimantInfo.amount,
+  };
 };
 
 export const airdrop = async (wallet) => {
@@ -74,6 +107,8 @@ export const airdrop = async (wallet) => {
   }
   const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
   const { program } = getProgram(wallet);
+
+  console.log('airdropData.tokenVault', airdropData.tokenVault.toString());
 
   const tx = await program.methods
     .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
@@ -95,5 +130,10 @@ export const airdrop = async (wallet) => {
 
   const signedTx = signedRawTx.serialize();
   const signature = await connection.sendRawTransaction(signedTx);
+
+  await connection.confirmTransaction({
+    signature: signature,
+  });
+
   return signature;
 };
