@@ -68,40 +68,32 @@ const getAirdropInfo = async (payer) => {
 };
 
 export const airdrop = async (wallet) => {
-  try {
-    const airdropInfo = await getAirdropInfo(wallet);
-    if (!airdropInfo) {
-      return null;
-    }
-    const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
-    const { program } = getProgram(wallet);
-
-    console.log(claimantTokenAccount.toString());
-    console.log(airdropData.tokenVault.toString());
-
-    const tx = await program.methods
-      .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
-      .accounts({
-        claimant: wallet.publicKey,
-        airdrop: airdropPDA,
-        claimStatus: claimStatusPDA,
-        to: claimantTokenAccount,
-        from: airdropData.tokenVault,
-        tokenProgram: splToken.TOKEN_PROGRAM_ID,
-        systemProgram: web3.SystemProgram.programId,
-      })
-      .transaction();
-    tx.feePayer = wallet.publicKey;
-
-    const latestBlockhash = await connection.getLatestBlockhash();
-    tx.recentBlockhash = latestBlockhash.blockhash;
-    const signedRawTx = await wallet.signTransaction(tx);
-
-    const signedTx = signedRawTx.serialize();
-    const signature = await connection.sendRawTransaction(signedTx);
-    return signature;
-  } catch (err) {
-    console.log('Transaction error: ', err);
-    return;
+  const airdropInfo = await getAirdropInfo(wallet);
+  if (!airdropInfo) {
+    return null;
   }
+  const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
+  const { program } = getProgram(wallet);
+
+  const tx = await program.methods
+    .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
+    .accounts({
+      claimant: wallet.publicKey,
+      airdrop: airdropPDA,
+      claimStatus: claimStatusPDA,
+      to: claimantTokenAccount,
+      from: airdropData.tokenVault,
+      tokenProgram: splToken.TOKEN_PROGRAM_ID,
+      systemProgram: web3.SystemProgram.programId,
+    })
+    .transaction();
+  tx.feePayer = wallet.publicKey;
+
+  const latestBlockhash = await connection.getLatestBlockhash();
+  tx.recentBlockhash = latestBlockhash.blockhash;
+  const signedRawTx = await wallet.signTransaction(tx);
+
+  const signedTx = signedRawTx.serialize();
+  const signature = await connection.sendRawTransaction(signedTx);
+  return signature;
 };
