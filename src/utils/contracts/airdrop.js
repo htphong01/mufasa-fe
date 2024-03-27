@@ -108,8 +108,6 @@ export const airdrop = async (wallet) => {
   const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
   const { program } = getProgram(wallet);
 
-  console.log('airdropData.tokenVault', airdropData.tokenVault.toString());
-
   const tx = await program.methods
     .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
     .accounts({
