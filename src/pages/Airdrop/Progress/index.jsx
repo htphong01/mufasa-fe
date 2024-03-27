@@ -10,10 +10,12 @@ export default function Progress() {
   
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [signature, setSignature] = useState('');
   const { setVisible } = useWalletModal();
 
   const { publicKey } = useWallet();
-  const wallet = useAnchorWallet();
+  // const wallet = useAnchorWallet();
+  const wallet = useWallet();
 
   const handleConnect = () => {
     setVisible(true);
@@ -22,10 +24,11 @@ export default function Progress() {
   const handleClaim = async () => {
     try {
       setIsLoading(true);
-      const tx = await airdrop(wallet);
+      const signature = await airdrop(wallet);
       toast.success('Claim successfully');
       setIsLoading(false);
     } catch (error) {
+      toast.error('An error occurred');
       console.log(error)
       setIsLoading(false);
     }

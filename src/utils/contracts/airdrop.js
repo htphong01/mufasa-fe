@@ -3,8 +3,9 @@ import MerkleTreeJSON from '@/resources/merkle-tree.json';
 import AirdropAddressJSON from '@/resources/airdrop-address.json';
 import { utils } from '@coral-xyz/anchor';
 import { Program, Provider, web3 } from '@project-serum/anchor';
+import * as anchor from '@project-serum/anchor';
 import * as splToken from '@solana/spl-token';
-import { PublicKey, sendAndConfirmTransaction, Transaction } from '@solana/web3.js';
+import { Keypair, PublicKey, sendAndConfirmTransaction, Transaction } from '@solana/web3.js';
 import { getProof } from './lib';
 import { commitmentLevel, connection } from './sol';
 import { Buffer } from 'buffer';
@@ -46,7 +47,7 @@ const getAirdropInfo = async (payer) => {
     return null;
   }
 
-  const proof = getProof(claimantInfo.index, MerkleTreeJSON);
+  const proof = getProof(claimantInfo.index, MerkleTreeJSON).map((p) => Buffer.from(p, 'hex').toJSON().data);
 
   let claimantTokenAccount = splToken.getAssociatedTokenAddressSync(airdropData.mint, payer.publicKey);
 
@@ -75,12 +76,11 @@ export const airdrop = async (wallet) => {
     const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
     const { program } = getProgram(wallet);
 
+    console.log(claimantTokenAccount.toString());
+    console.log(airdropData.tokenVault.toString());
+
     const tx = await program.methods
-      .claim(
-        BigInt(amount),
-        BigInt(amount),
-        proof.map((p) => Buffer.from(p, 'hex').toJSON().data)
-      )
+      .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
       .accounts({
         claimant: wallet.publicKey,
         airdrop: airdropPDA,
@@ -90,9 +90,16 @@ export const airdrop = async (wallet) => {
         tokenProgram: splToken.TOKEN_PROGRAM_ID,
         systemProgram: web3.SystemProgram.programId,
       })
-      .signers([wallet])
-      .rpc();
-    return tx;
+      .transaction();
+    tx.feePayer = wallet.publicKey;
+
+    const latestBlockhash = await connection.getLatestBlockhash();
+    tx.recentBlockhash = latestBlockhash.blockhash;
+    const signedRawTx = await wallet.signTransaction(tx);
+
+    const signedTx = signedRawTx.serialize();
+    const signature = await connection.sendRawTransaction(signedTx);
+    return signature;
   } catch (err) {
     console.log('Transaction error: ', err);
     return;
