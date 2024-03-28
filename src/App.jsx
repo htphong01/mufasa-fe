@@ -15,7 +15,7 @@ const router = createBrowserRouter(userRoutes);
 function App() {
   const solNetwork = import.meta.env.VITE_SOLANA_NETWORK;
   const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
-  const wallets = useMemo(() => [new PhantomWalletAdapter()], [solNetwork]);
+  const wallets = useMemo(() => [new PhantomWalletAdapter(), new SolflareWalletAdapter({ solNetwork })], [solNetwork]);
 
   return (
     <ThemeProvider theme={themeConfig}>
