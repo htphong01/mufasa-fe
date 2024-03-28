@@ -1,14 +1,14 @@
+import AirdropAddressJSON from '@/resources/airdrop-address.json';
 import airdropIdl from '@/resources/idl/airdrop.json';
 import MerkleTreeJSON from '@/resources/merkle-tree.json';
-import AirdropAddressJSON from '@/resources/airdrop-address.json';
 import { utils } from '@coral-xyz/anchor';
-import { Program, Provider, web3 } from '@project-serum/anchor';
 import * as anchor from '@project-serum/anchor';
+import { Program, Provider, web3 } from '@project-serum/anchor';
 import * as splToken from '@solana/spl-token';
-import { PublicKey, sendAndConfirmTransaction, Transaction } from '@solana/web3.js';
+import { PublicKey, Transaction } from '@solana/web3.js';
+import { Buffer } from 'buffer';
 import { getProof } from './lib';
 import { commitmentLevel, connection } from './sol';
-import { Buffer } from 'buffer';
 
 window.Buffer = Buffer;
 
@@ -79,8 +79,6 @@ const getAirdropInfo = async (payer) => {
     await connection.confirmTransaction({
       signature: signature,
     });
-
-    // await sendAndConfirmTransaction(connection, transaction, [payer], { commitment: 'confirmed' });
 
     claimantTokenAccount = await splToken.getOrCreateAssociatedTokenAccount(
       connection,
