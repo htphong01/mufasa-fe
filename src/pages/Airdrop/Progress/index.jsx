@@ -1,4 +1,5 @@
-import { airdrop } from '@/utils/contracts/airdrop';
+import { airdrop, getTokenVaultAddress } from '@/utils/contracts/airdrop';
+import { getTokenBalance } from '@/utils/contracts/spl-token';
 import { useAnchorWallet, useWallet } from '@solana/wallet-adapter-react';
 import { useWalletModal } from '@solana/wallet-adapter-react-ui';
 import React, { useEffect, useState } from 'react';
@@ -11,7 +12,10 @@ const SOLANA_EXPLORER = import.meta.env.VITE_SOLANA_EXPLORER;
 const NETWORK = import.meta.env.VITE_SOLANA_NETWORK;
 
 export default function Progress({ user }) {
-  const [progress, setProgress] = useState(0);
+  const [tokenSupply, setTokenSupply] = useState({
+    current: 0,
+    total: import.meta.env.VITE_TOTAL_SUPPLY,
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [signature, setSignature] = useState(user?.tx || '');
   const { setVisible } = useWalletModal();
@@ -24,12 +28,26 @@ export default function Progress({ user }) {
     setVisible(true);
   };
 
+  const handleViewTransaction = () => {
+    window.open(`${SOLANA_EXPLORER}/tx/${signature}?cluster=${NETWORK}`);
+  };
+
+  const fetchTokenProgress = async () => {
+    const tokenVaultAddress = await getTokenVaultAddress();
+    const data = await getTokenBalance(tokenVaultAddress);
+    setTokenSupply({
+      current: data,
+      total: import.meta.env.VITE_TOTAL_SUPPLY,
+    });
+  };
+
   const handleClaim = async () => {
     try {
       setIsLoading(true);
       const signature = await airdrop(wallet);
       setSignature(signature);
       await updateUser(user.address, { tx: signature });
+      fetchTokenProgress();
       toast.success('Claim successfully');
       setIsLoading(false);
     } catch (error) {
@@ -39,13 +57,10 @@ export default function Progress({ user }) {
     }
   };
 
-  const handleViewTransaction = () => {
-    window.open(`${SOLANA_EXPLORER}/tx/${signature}?cluster=${NETWORK}`);
-  };
-
   useEffect(() => {
-    setSignature(user?.tx || '')
-  }, [user])
+    setSignature(user?.tx || '');
+    fetchTokenProgress();
+  }, [user]);
 
   return (
     <Container>
@@ -59,14 +74,14 @@ export default function Progress({ user }) {
         <ProgressLabel>
           <div>
             <label>Current airdrop allocation</label>
-            <span>0 $MUF</span>
+            <span>{tokenSupply.total - tokenSupply.current} $MUF</span>
           </div>
           <div>
             <label>Total Airdrop: 5,000,000</label>
             <span>$MUF</span>
           </div>
         </ProgressLabel>
-        <ProgressBar width={progress}>
+        <ProgressBar width={(tokenSupply.current * 100) / tokenSupply.total}>
           <div></div>
         </ProgressBar>
         {signature && wallet?.publicKey ? (

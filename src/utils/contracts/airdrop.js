@@ -34,19 +34,15 @@ const getAirdropInfo = async (payer) => {
     [utils.bytes.utf8.encode('Airdrop'), new PublicKey(MUFASA_TOKEN_ADDRESS).toBuffer()],
     program.programId
   );
-
   const airdropData = await program.account.airdrop.fetch(airdropPDA);
-
   const [claimStatusPDA] = PublicKey.findProgramAddressSync(
     [utils.bytes.utf8.encode('ClaimStatus'), payer.publicKey.toBuffer(), airdropPDA.toBuffer()],
     program.programId
   );
-
   const claimantInfo = AirdropAddressJSON[payer.publicKey.toString()];
   if (!claimantInfo) {
     return null;
   }
-
   const proof = getProof(claimantInfo.index, MerkleTreeJSON).map((p) => Buffer.from(p, 'hex').toJSON().data);
   let claimantTokenAccount;
   try {
@@ -66,20 +62,15 @@ const getAirdropInfo = async (payer) => {
         airdropData.mint
       )
     );
-
     tx.feePayer = payer.publicKey;
-
     const latestBlockhash = await connection.getLatestBlockhash();
     tx.recentBlockhash = latestBlockhash.blockhash;
     const signedRawTx = await payer.signTransaction(tx);
-
     const signedTx = signedRawTx.serialize();
     const signature = await connection.sendRawTransaction(signedTx);
-
     await connection.confirmTransaction({
       signature: signature,
     });
-
     claimantTokenAccount = await splToken.getOrCreateAssociatedTokenAccount(
       connection,
       payer,
@@ -87,7 +78,6 @@ const getAirdropInfo = async (payer) => {
       payer.publicKey
     );
   }
-
   return {
     airdropPDA,
     airdropData,
@@ -98,6 +88,17 @@ const getAirdropInfo = async (payer) => {
   };
 };
 
+export const getTokenVaultAddress = async (token = MUFASA_TOKEN_ADDRESS) => {
+  const { program } = getProgram();
+  const [airdropPDA] = PublicKey.findProgramAddressSync(
+    [utils.bytes.utf8.encode('Airdrop'), new PublicKey(token).toBuffer()],
+    program.programId
+  );
+
+  const airdropData = await program.account.airdrop.fetch(airdropPDA);
+  return airdropData.tokenVault.toString();
+};
+
 export const airdrop = async (wallet) => {
   const airdropInfo = await getAirdropInfo(wallet);
   if (!airdropInfo) {
@@ -105,7 +106,6 @@ export const airdrop = async (wallet) => {
   }
   const { airdropPDA, airdropData, claimStatusPDA, proof, claimantTokenAccount, amount } = airdropInfo;
   const { program } = getProgram(wallet);
-
   const tx = await program.methods
     .claim(new anchor.BN(amount), new anchor.BN(amount), proof)
     .accounts({
@@ -119,17 +119,13 @@ export const airdrop = async (wallet) => {
     })
     .transaction();
   tx.feePayer = wallet.publicKey;
-
   const latestBlockhash = await connection.getLatestBlockhash();
   tx.recentBlockhash = latestBlockhash.blockhash;
   const signedRawTx = await wallet.signTransaction(tx);
-
   const signedTx = signedRawTx.serialize();
   const signature = await connection.sendRawTransaction(signedTx);
-
   await connection.confirmTransaction({
     signature: signature,
   });
-
   return signature;
 };
