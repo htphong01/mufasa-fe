@@ -74,6 +74,10 @@ export const ImageContainer = styled.div`
     max-height: 200px;
     width: 100%;
     object-fit: cover;
+
+    @media screen and (max-width: 768px) {
+      max-height: unset;
+    }
   }
 `;
 
