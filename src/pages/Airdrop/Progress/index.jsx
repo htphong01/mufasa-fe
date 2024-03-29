@@ -14,7 +14,7 @@ const NETWORK = import.meta.env.VITE_SOLANA_NETWORK;
 export default function Progress({ user }) {
   const [tokenSupply, setTokenSupply] = useState({
     current: 0,
-    total: import.meta.env.VITE_TOTAL_SUPPLY,
+    total: Number(import.meta.env.VITE_TOTAL_SUPPLY),
   });
   const [isLoading, setIsLoading] = useState(false);
   const [signature, setSignature] = useState(user?.tx || '');
@@ -37,7 +37,7 @@ export default function Progress({ user }) {
     const data = await getTokenBalance(tokenVaultAddress);
     setTokenSupply({
       current: data,
-      total: import.meta.env.VITE_TOTAL_SUPPLY,
+      total: Number(import.meta.env.VITE_TOTAL_SUPPLY),
     });
   };
 
