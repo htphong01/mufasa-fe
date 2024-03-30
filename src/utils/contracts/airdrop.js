@@ -41,7 +41,7 @@ const getAirdropInfo = async (payer) => {
   );
   const claimantInfo = AirdropAddressJSON[payer.publicKey.toString()];
   if (!claimantInfo) {
-    return null;
+    throw Error('Not in whitelist to claim!')
   }
   const proof = getProof(claimantInfo.index, MerkleTreeJSON).map((p) => Buffer.from(p, 'hex').toJSON().data);
   let claimantTokenAccount;
