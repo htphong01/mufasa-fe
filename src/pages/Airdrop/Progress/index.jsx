@@ -17,7 +17,7 @@ export default function Progress({ user }) {
     total: Number(import.meta.env.VITE_TOTAL_SUPPLY),
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [signature, setSignature] = useState(user?.tx || '');
+  const [signature, setSignature] = useState(user?.claimTx || '');
   const { setVisible } = useWalletModal();
 
   const { publicKey } = useWallet();
@@ -46,7 +46,7 @@ export default function Progress({ user }) {
       setIsLoading(true);
       const signature = await airdrop(wallet);
       setSignature(signature);
-      await updateUser(user.address, { tx: signature });
+      await updateUser(user.address, { claimTx: signature });
       fetchTokenProgress();
       toast.success('Claim successfully');
       setIsLoading(false);
@@ -58,7 +58,7 @@ export default function Progress({ user }) {
   };
 
   useEffect(() => {
-    setSignature(user?.tx || '');
+    setSignature(user?.claimTx || '');
     fetchTokenProgress();
   }, [user]);
 
