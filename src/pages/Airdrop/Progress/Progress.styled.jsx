@@ -7,6 +7,10 @@ export const AlreadyClaim = styled.div`
 
   > div {
     font-family: 'Caesar Dressing';
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 
     > span {
       background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);

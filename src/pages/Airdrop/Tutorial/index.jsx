@@ -135,7 +135,7 @@ export default function Tutorial({ user }) {
               </button>
             )}
           </div>
-          <div>{masterAddress}</div>
+          <div className='long-text'><span>{masterAddress}</span></div>
           <div className="flex">
             <div>To claim $RAJ airdrop</div>
             <div>Note: 24h Snapshoot</div>

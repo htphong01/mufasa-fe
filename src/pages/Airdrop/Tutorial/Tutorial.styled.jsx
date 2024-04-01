@@ -14,8 +14,8 @@ export const InstructionContainer = styled.div`
 
   > div {
     font-family: 'Caesar Dressing';
-    text-align: center;
     text-wrap: wrap;
+    width: 100%;
 
     &.flex {
       display: flex;
@@ -26,6 +26,13 @@ export const InstructionContainer = styled.div`
       .text-left {
         text-align: left;
       }
+    }
+
+    &.long-text {
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     button {
