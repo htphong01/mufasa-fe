@@ -51,7 +51,7 @@ export default function Progress({ user }) {
       toast.success('Claim successfully');
       setIsLoading(false);
     } catch (error) {
-      toast.error('An error occurred');
+      toast.error(error.message || 'An error occurred');
       console.log(error);
       setIsLoading(false);
     }
