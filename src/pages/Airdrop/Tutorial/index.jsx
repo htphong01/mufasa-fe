@@ -25,7 +25,6 @@ export default function Tutorial({ user }) {
   const [doneTask, setDoneTask] = useState({
     twitter: user?.twitter || false,
     telegram: user?.telegram || false,
-    deposit: user?.deposit || false,
   });
   const [isCopying, setIsCopying] = useState({
     address: false,
@@ -77,7 +76,6 @@ export default function Tutorial({ user }) {
       setDoneTask({
         twitter: user?.twitter,
         telegram: user?.telegram,
-        deposit: user?.deposit,
       });
     }
   }, [user]);
@@ -125,7 +123,7 @@ export default function Tutorial({ user }) {
               <button onClick={() => handleOpenLink('telegram')}>JOIN</button>
             )}
           </div>
-          <div className="flex">
+          {/* <div className="flex">
             <div className="text-left">3. send 0 $SOL or 1 $BONK/ 1 $ANALOS/ 1 $MYRO to This Wallet</div>
             {doneTask.deposit ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
@@ -134,10 +132,10 @@ export default function Tutorial({ user }) {
                 {isCopying.address ? 'Copied' : 'Copy'}
               </button>
             )}
-          </div>
-          <div className='long-text'><span>{masterAddress}</span></div>
+          </div> */}
+          {/* <div className='long-text'><span>{masterAddress}</span></div> */}
           <div className="flex">
-            <div>To claim $RAJ airdrop</div>
+            <div>To claim $MUF airdrop</div>
             <div>Note: 24h Snapshoot</div>
           </div>
           <div className="flex">
