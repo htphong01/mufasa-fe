@@ -11,6 +11,7 @@ export const AlreadyClaim = styled.div`
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
 
     > span {
       background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
