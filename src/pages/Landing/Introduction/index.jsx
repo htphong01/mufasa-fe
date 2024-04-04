@@ -14,14 +14,7 @@ export default function Introduction() {
             Our <br /> Mission
           </p>
           <p className="mobile">Our Mission</p>
-          <span>
-            Bringing meme to Fraxtal and, at the same time, incentive FXTL points to make sure Fraxtal is one of the
-            most important blockchains in the crypto space.
-            <br />
-            <br />
-            Mufasa will boast the Frax Finance ecosystem and encourage the developers to deploy on Fraxtal and at the
-            same time rewarding the users of Dapps on Fraxtal.
-          </span>
+          <span>Our mission is to restore confidence in memes again and have fun while we are on Earth.</span>
         </div>
         <div>
           <div>

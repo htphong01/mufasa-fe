@@ -81,7 +81,7 @@ export default function Progress({ user }) {
             <span>$MUF</span>
           </div>
         </ProgressLabel>
-        <ProgressBar width={(tokenSupply.current * 100) / tokenSupply.total}>
+        <ProgressBar width={((tokenSupply.total - tokenSupply.current) * 100) / tokenSupply.total}>
           <div></div>
         </ProgressBar>
         {signature && wallet?.publicKey ? (
