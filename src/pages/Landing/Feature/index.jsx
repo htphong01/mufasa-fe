@@ -28,8 +28,8 @@ export default function Feature() {
             </CardIconContainer>
             <p>MUFASA TOKEN</p>
             <span>
-              MUFASA token will be used to power the Mufasa and Frax Finance ecosystem, through governance and building
-              a strong ecosystem.
+              MUFASA token will be used to power the Mufasa ecosystem, through governance and building a strong
+              ecosystem.
             </span>
           </Card>
           <Card>

@@ -50,7 +50,7 @@ export default function Tokenomic() {
             <ChartInfo solidColor="#9EC97F">
               <div>
                 <div className="solid"></div>
-                <span>40%</span>
+                <span>60%</span>
               </div>
               <div>Liquidity</div>
             </ChartInfo>
@@ -60,13 +60,6 @@ export default function Tokenomic() {
                 <span>10%</span>
               </div>
               <div>Airdrop</div>
-            </ChartInfo>
-            <ChartInfo solidColor="#F3C96B">
-              <div>
-                <div className="solid"></div>
-                <span>20%</span>
-              </div>
-              <div>Mufasa ecosystem</div>
             </ChartInfo>
           </ChartInfoContainer>
           <div className="mobile">
@@ -80,7 +73,7 @@ export default function Tokenomic() {
             <ChartInfo solidColor="#9EC97F">
               <div>
                 <div className="solid"></div>
-                <span>40%</span>
+                <span>60%</span>
               </div>
               <div>Liquidity</div>
             </ChartInfo>
@@ -98,19 +91,14 @@ export default function Tokenomic() {
               </div>
               <div>Airdrop</div>
             </ChartInfo>
+          </div>
+          <div className='chart-info-mobile'>
             <ChartInfo solidColor="#599F76">
               <div>
                 <div className="solid"></div>
                 <span>5%</span>
               </div>
               <div>Marketing</div>
-            </ChartInfo>
-            <ChartInfo solidColor="#F3C96B">
-              <div>
-                <div className="solid"></div>
-                <span>20%</span>
-              </div>
-              <div>Mufasa ecosystem</div>
             </ChartInfo>
           </div>
         </ChartContainer>

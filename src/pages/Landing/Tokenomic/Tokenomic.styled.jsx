@@ -94,6 +94,10 @@ export const ChartContainer = styled.div`
   justify-content: center;
   gap: 32px;
 
+  .chart-info-mobile {
+    display: none;
+  }
+
   > div.mobile {
     display: none;
     grid-template-columns: 1fr 1fr;
@@ -110,6 +114,16 @@ export const ChartContainer = styled.div`
 
     > div.mobile {
       display: grid;
+    }
+
+    .chart-info-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        width: 50%;
+      }
     }
 
     > ${ChartInfo} {
