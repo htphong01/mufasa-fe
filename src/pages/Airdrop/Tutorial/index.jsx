@@ -41,6 +41,7 @@ export default function Tutorial({ user }) {
         url = 'https://t.me/mufasalol';
         break;
     }
+    updateUser(user.address, { [type]: true });
 
     setIsVerifying(true);
     window.open(url, '_blank', 'noreferrer');
@@ -50,7 +51,6 @@ export default function Tutorial({ user }) {
         ...doneTask,
         [type]: true,
       });
-      await updateUser(user.address, { [type]: true });
       toast.success('Verify successfully');
     }, 15000);
   };
