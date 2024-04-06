@@ -77,8 +77,8 @@ export default function Progress({ user }) {
             <span>{tokenSupply.total - tokenSupply.current} $MUF</span>
           </div>
           <div>
-            <label>Total Airdrop: 5,000,000</label>
-            <span>$MUF</span>
+            <label>Total Airdrop</label>
+            <span>9,500,000,000,000 $MUF</span>
           </div>
         </ProgressLabel>
         <ProgressBar width={((tokenSupply.total - tokenSupply.current) * 100) / tokenSupply.total}>

@@ -10,7 +10,7 @@ export default function LandingPage() {
   return (
     <div>
       <Banner />
-      <ScrollingText />
+      {/* <ScrollingText /> */}
       <Introduction />
       <Feature />
       <Tokenomic />
