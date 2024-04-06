@@ -175,7 +175,7 @@ export default function Tutorial({ user }) {
           </div> */}
           {/* <div className='long-text'><span>{masterAddress}</span></div> */}
           <div className="flex">
-            <div>To claim $MUF airdrop</div>
+            <div>Claim Your Mufasa Airdrop</div>
             <div className="note">(Airdrop will be distributed at later date)</div>
           </div>
           <div className="flex">
