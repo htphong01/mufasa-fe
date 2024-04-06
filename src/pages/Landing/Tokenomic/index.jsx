@@ -102,7 +102,7 @@ export default function Tokenomic() {
             </ChartInfo>
           </div>
         </ChartContainer>
-        <Reminder>Don’t forget airdrop grr</Reminder>
+        <Reminder>Don’t forget Mufasa airdrop</Reminder>
       </TokenomicContainer>
     </Container>
   );

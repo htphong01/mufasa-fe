@@ -13,7 +13,7 @@ const NETWORK = import.meta.env.VITE_SOLANA_NETWORK;
 
 export default function Progress({ user }) {
   const [tokenSupply, setTokenSupply] = useState({
-    current: 0,
+    current: Number(import.meta.env.VITE_TOTAL_SUPPLY),
     total: Number(import.meta.env.VITE_TOTAL_SUPPLY),
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,7 @@ export default function Progress({ user }) {
     const tokenVaultAddress = await getTokenVaultAddress();
     const data = await getTokenBalance(tokenVaultAddress);
     setTokenSupply({
-      current: data,
+      current: Number(import.meta.env.VITE_TOTAL_SUPPLY),
       total: Number(import.meta.env.VITE_TOTAL_SUPPLY),
     });
   };
@@ -84,7 +84,7 @@ export default function Progress({ user }) {
         <ProgressBar width={((tokenSupply.total - tokenSupply.current) * 100) / tokenSupply.total}>
           <div></div>
         </ProgressBar>
-        {signature && wallet?.publicKey ? (
+        {/* {signature && wallet?.publicKey ? (
           <AlreadyClaim>
             <div>You have already claimed</div>
             <div>
@@ -99,9 +99,12 @@ export default function Progress({ user }) {
           </AlreadyClaim>
         ) : (
           <ClaimButton onClick={publicKey ? handleClaim : handleConnect}>
-            <span>{publicKey ? 'claimmmmmmmm grrrrr' : 'Connect to claimmmmm'}</span>
+            <span>{publicKey ? 'Buy Mufasa' : 'Connect to claim'}</span>
           </ClaimButton>
-        )}
+        )} */}
+        <ClaimButton disabled={true}>
+          <span>Coming soon</span>
+        </ClaimButton>
       </ProgressContainer>
     </Container>
   );

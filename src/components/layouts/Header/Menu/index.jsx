@@ -10,10 +10,10 @@ export default function HeaderMenu() {
   return (
     <HeaderMenuContainer>
       <MenuItemList>
-        <Link to="/forest">FOREST</Link>
+        <Link to="#">JOIN LP</Link>
         <Link to="/airdrop">AIRDROP</Link>
       </MenuItemList>
-      <BuyButton onClick={publicKey ? disconnect : () => navigate('/airdrop')}>{publicKey ? 'Disconnect' : 'buyyyyyyy grrrrr'}</BuyButton>
+      <BuyButton onClick={publicKey ? disconnect : () => navigate('/airdrop')}>{publicKey ? 'Disconnect' : 'BUY MUFASA'}</BuyButton>
     </HeaderMenuContainer>
   );
 }

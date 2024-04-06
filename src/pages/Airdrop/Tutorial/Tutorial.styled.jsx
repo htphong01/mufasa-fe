@@ -26,6 +26,14 @@ export const InstructionContainer = styled.div`
       .text-left {
         text-align: left;
       }
+
+      .note {
+        font-family: 'Caesar Dressing';
+        font-size: 14px;
+        line-height: 24px;
+        text-align: right;
+        color: ${({ theme }) => theme.colors.neural['50']};
+      }
     }
 
     &.long-text {
@@ -68,10 +76,12 @@ export const ImageContainer = styled.div`
   overflow: hidden;
 
   > div {
-    font-size: 64px;
-    line-height: 96px;
+    font-size: 48px;
+    line-height: 64px;
     text-align: center;
     color: ${({ theme }) => theme.colors.neural['50']};
+
+    
     @media screen and (max-width: 768px) {
       font-size: 48px;
     }

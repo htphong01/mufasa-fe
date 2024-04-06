@@ -39,6 +39,10 @@ export const ClaimButton = styled.button`
   background: linear-gradient(180deg, #ffd029 0%, #ff8616 100%);
   border-radius: 4px;
 
+  &:disabled {
+    background: #475467;
+  }
+
   > span {
     font-family: 'Caesar Dressing';
     text-align: center;

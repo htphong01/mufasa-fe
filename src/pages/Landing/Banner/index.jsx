@@ -1,8 +1,15 @@
 import React from 'react';
 import { BannerDescription, BannerHeading, BuyButton, Container } from './Banner.styled';
 import bannerImg from '@/assets/images/png/banner.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function Banner() {
+  const navigate = useNavigate();
+
+  const handleBuyMufasa = () => {
+    navigate('/airdrop')
+  }
+
   return (
     <Container>
       <img src={bannerImg} />
@@ -17,7 +24,7 @@ export default function Banner() {
             their time in the space and it's time for MUFASA to rule as the king and to take responsibility for his
             kingdom and subjects.
           </BannerDescription>
-          <BuyButton>buyyyyyyy grrrrr</BuyButton>
+          <BuyButton onClick={handleBuyMufasa}>BUY MUFASA</BuyButton>
         </div>
       </div>
     </Container>

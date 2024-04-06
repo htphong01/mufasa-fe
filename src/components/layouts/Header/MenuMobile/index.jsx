@@ -28,7 +28,7 @@ export default function HeaderMenuMobile() {
       </div>
       {isOpenMenu && (
         <HeaderMenuMobileList>
-          <Link to="/forest">FOREST</Link>
+          <Link to="#" onClick={handleNavigate}>JOIN JP</Link>
           <Link to="/airdrop" onClick={handleNavigate}>AIRDROP</Link>
         </HeaderMenuMobileList>
       )}

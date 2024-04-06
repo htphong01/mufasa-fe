@@ -83,7 +83,7 @@ export const PhaseTitle = styled.div`
   line-height: 38px;
   text-transform: capitalize;
   text-align: center;
-  color: ${({ theme }) => theme.colors.neural['900']};
+  color: ${({ theme }) => theme.colors.neural['0']};
 `;
 
 export const PhaseSubTitle = styled.div`

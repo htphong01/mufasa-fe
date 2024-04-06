@@ -23,8 +23,11 @@ export default function Tutorial({ user }) {
 
   const [isVerifying, setIsVerifying] = useState(false);
   const [doneTask, setDoneTask] = useState({
-    twitter: user?.twitter || false,
-    telegram: user?.telegram || false,
+    telegramGroup: user?.telegramGroup || false,
+    telegramAnnouncement: user?.telegramAnnouncement || false,
+    mufasaTwitter: user?.mufasaTwitter || false,
+    lionKingTwitter: user?.lionKingTwitter || false,
+    mufasaDiscord: user?.mufasaDiscord || false,
   });
   const [isCopying, setIsCopying] = useState({
     address: false,
@@ -34,11 +37,20 @@ export default function Tutorial({ user }) {
   const handleOpenLink = (type) => {
     let url = '';
     switch (type) {
-      case 'twitter':
+      case 'telegramGroup':
+        url = 'https://t.me/mufasalol';
+        break;
+      case 'telegramAnnouncement':
+        url = 'https://t.me/mufasaannoucement';
+        break;
+      case 'mufasaTwitter':
         url = 'https://x.com/mufasalol_';
         break;
-      case 'telegram':
-        url = 'https://t.me/mufasalol';
+      case 'lionKingTwitter':
+        url = 'https://twitter.com/Dublyking';
+        break;
+      case 'mufasaDiscord':
+        url = 'https://discord.com/invite/hnNPHejPDZ';
         break;
     }
     updateUser(user.address, { [type]: true });
@@ -74,8 +86,11 @@ export default function Tutorial({ user }) {
   useEffect(() => {
     if (user) {
       setDoneTask({
-        twitter: user?.twitter,
-        telegram: user?.telegram,
+        telegramGroup: user?.telegramGroup,
+        telegramAnnouncement: user?.telegramAnnouncement,
+        mufasaTwitter: user?.mufasaTwitter,
+        lionKingTwitter: user?.lionKingTwitter,
+        mufasaDiscord: user?.mufasaDiscord,
       });
     }
   }, [user]);
@@ -91,7 +106,7 @@ export default function Tutorial({ user }) {
       <TutorialContainer>
         <ImageContainer>
           <img src={AirdropTutorialImg} alt="airdrop" />
-          <div>Don’t forget airdrop grr</div>
+          <div>Don’t forget MUFASA airdrop</div>
         </ImageContainer>
         <InstructionContainer>
           {!user && (
@@ -108,21 +123,46 @@ export default function Tutorial({ user }) {
             </div>
           </div>
           <div className="flex">
-            <div>1. Follow twitter</div>
-            {doneTask.twitter ? (
+            <div>1. Join Mufasa Telegram Group</div>
+            {doneTask.telegramGroup ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('twitter')}>FOLLOW</button>
+              <button onClick={() => handleOpenLink('telegramGroup')}>JOIN</button>
             )}
           </div>
           <div className="flex">
-            <div>2. Join our TG</div>
-            {doneTask.telegram ? (
+            <div>2. Join Mufasa Telegram Announcement Channel </div>
+            {doneTask.telegramAnnouncement ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('telegram')}>JOIN</button>
+              <button onClick={() => handleOpenLink('telegramAnnouncement')}>JOIN</button>
             )}
           </div>
+          <div className="flex">
+            <div>3. Follow Mufasa Twitter</div>
+            {doneTask.mufasaTwitter ? (
+              <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
+            ) : (
+              <button onClick={() => handleOpenLink('mufasaTwitter')}>FOLLOW</button>
+            )}
+          </div>
+          <div className="flex">
+            <div>4. Follow The Lion King On Twitter</div>
+            {doneTask.lionKingTwitter ? (
+              <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
+            ) : (
+              <button onClick={() => handleOpenLink('lionKingTwitter')}>FOLLOW</button>
+            )}
+          </div>
+          <div className="flex">
+            <div>5. Join Mufasa Discord</div>
+            {doneTask.mufasaDiscord ? (
+              <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
+            ) : (
+              <button onClick={() => handleOpenLink('mufasaDiscord')}>JOIN</button>
+            )}
+          </div>
+
           {/* <div className="flex">
             <div className="text-left">3. send 0 $SOL or 1 $BONK/ 1 $ANALOS/ 1 $MYRO to This Wallet</div>
             {doneTask.deposit ? (
@@ -136,24 +176,19 @@ export default function Tutorial({ user }) {
           {/* <div className='long-text'><span>{masterAddress}</span></div> */}
           <div className="flex">
             <div>To claim $MUF airdrop</div>
-            <div>Note: 24h Snapshoot</div>
+            <div className="note">(Airdrop will be distributed at later date)</div>
           </div>
           <div className="flex">
-            <div className="yellow">You have invite friend</div>
-            <div>
-              Get <span className="yellow">20 POINTS</span>
-            </div>
+            <div className="yellow">Want more Mufasa token?</div>
+          </div>
+          <div className="flex">
+            <div className="small text-left">Share your referral link to your friends to earn more Mufasa token</div>
           </div>
           <div className="flex">
             <div className="text-left">1. Invite</div>
             <button onClick={() => handleCopyToClipboard(userRefLink, 'invite')}>
               {isCopying.invite ? 'Copied' : 'Copy'}
             </button>
-          </div>
-          <div className="flex">
-            <div className="small text-left">
-              Invited users, please complete mufasa tasks for a successful referral. Thank you!
-            </div>
           </div>
         </InstructionContainer>
       </TutorialContainer>
