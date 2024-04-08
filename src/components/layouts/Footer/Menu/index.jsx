@@ -7,7 +7,7 @@ export default function FooterMenu() {
     <FooterMenuContainer>
       <div>MUFASA</div>
       <div>
-        <Link to="/docs">DOCS</Link>
+        <a href="https://mufasas-organization.gitbook.io/mufasa" target='_blank'>DOCS</a>
         <Link to="/airdrop">AIRDROP</Link>
       </div>
     </FooterMenuContainer>
