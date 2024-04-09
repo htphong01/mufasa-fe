@@ -19,7 +19,7 @@ const masterAddress = 'EwzjM1jFGhXo8q15nLkVWFsRz1eoyP3PAkFeXdNkFemA';
 export default function Tutorial({ user }) {
   const { setVisible } = useWalletModal();
 
-  const userRefLink = `${window.location.href}?ref=${user?.code}`;
+  const userRefLink = `${window.location.origin}/airdrop?ref=${user?.code}`;
 
   const [isVerifying, setIsVerifying] = useState(false);
   const [doneTask, setDoneTask] = useState({
