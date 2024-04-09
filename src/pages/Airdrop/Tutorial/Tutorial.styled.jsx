@@ -88,7 +88,6 @@ export const ImageContainer = styled.div`
   }
 
   > img {
-    max-height: 200px;
     width: 100%;
     object-fit: cover;
 

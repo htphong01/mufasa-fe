@@ -44,8 +44,8 @@ export default function AirdropPage() {
         </div>
       )}
       <Progress user={user} />
-      <Introduction />
       <Tutorial user={user} />
+      <Introduction />
     </div>
   );
 }
