@@ -23,6 +23,10 @@ export const InstructionContainer = styled.div`
       justify-content: space-between;
       width: 100%;
 
+      > div:first-child {
+        flex: 1;
+      }
+
       .text-left {
         text-align: left;
       }

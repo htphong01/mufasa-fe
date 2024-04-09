@@ -53,7 +53,7 @@ export default function Tutorial({ user }) {
         url = 'https://discord.com/invite/hnNPHejPDZ';
         break;
     }
-    await updateUser(user.address, { [type]: true });
+    updateUser(user.address, { [type]: true });
 
     setIsVerifying(true);
     window.open(url, '_blank', 'noreferrer');
