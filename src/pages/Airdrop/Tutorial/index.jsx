@@ -34,7 +34,7 @@ export default function Tutorial({ user }) {
     invite: false,
   });
 
-  const handleOpenLink = (type) => {
+  const handleOpenLink = async (type) => {
     let url = '';
     switch (type) {
       case 'telegramGroup':
@@ -53,7 +53,7 @@ export default function Tutorial({ user }) {
         url = 'https://discord.com/invite/hnNPHejPDZ';
         break;
     }
-    updateUser(user.address, { [type]: true });
+    await updateUser(user.address, { [type]: true });
 
     setIsVerifying(true);
     window.open(url, '_blank', 'noreferrer');
