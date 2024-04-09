@@ -56,7 +56,7 @@ export default function Tutorial({ user }) {
     updateUser(user.address, { [type]: true });
 
     setIsVerifying(true);
-    window.open(url, '_blank', 'noreferrer');
+    window.open(url, '_system');
     setTimeout(async () => {
       setIsVerifying(false);
       setDoneTask({
@@ -64,7 +64,7 @@ export default function Tutorial({ user }) {
         [type]: true,
       });
       toast.success('Verify successfully');
-    }, 15000);
+    }, 30000);
   };
 
   const handleCopyToClipboard = (text, type) => {
