@@ -55,8 +55,9 @@ export default function Tutorial({ user }) {
           break;
       }
 
+      toast.success(user.address, type);
       updateUser(user.address, { [type]: true });
-
+      toast.success('After');
       setIsVerifying(true);
       window.open(url, '_system');
       setTimeout(async () => {
