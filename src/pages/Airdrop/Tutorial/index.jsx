@@ -48,7 +48,9 @@ export default function Tutorial({ user }) {
         toast.success('Verify successfully');
       }, 30000);
     } catch (error) {
-      toast.error(error.message0);
+      toast.error(JSON.stringify(error), {
+        duration: 10000
+      });
     }
   };
 
