@@ -47,7 +47,7 @@ export const InstructionContainer = styled.div`
       overflow: hidden;
     }
 
-    button {
+    a {
       display: flex;
       flex-direction: row;
       justify-content: center;

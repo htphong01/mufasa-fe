@@ -17,8 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 const masterAddress = 'EwzjM1jFGhXo8q15nLkVWFsRz1eoyP3PAkFeXdNkFemA';
 
-export default function Tutorial({ user }) {c
-  const navigate = useNavigate();
+export default function Tutorial({ user }) {
   const { setVisible } = useWalletModal();
 
   const userRefLink = `${window.location.origin}/airdrop?ref=${user?.code}`;
@@ -38,27 +37,8 @@ export default function Tutorial({ user }) {c
 
   const handleOpenLink = async (type) => {
     try {
-      let url = '';
-      switch (type) {
-        case 'telegramGroup':
-          url = 'https://t.me/mufasalol';
-          break;
-        case 'telegramAnnouncement':
-          url = 'https://t.me/mufasaannoucement';
-          break;
-        case 'mufasaTwitter':
-          url = 'https://x.com/mufasalol_';
-          break;
-        case 'lionKingTwitter':
-          url = 'https://twitter.com/Dublyking';
-          break;
-        case 'mufasaDiscord':
-          url = 'https://discord.com/invite/hnNPHejPDZ';
-          break;
-      }
       setIsVerifying(true);
-      await updateUser(user.address, { [type]: true });
-      navigate(url);
+      updateUser(user.address, { [type]: true });
       setTimeout(async () => {
         setIsVerifying(false);
         setDoneTask({
@@ -132,7 +112,7 @@ export default function Tutorial({ user }) {c
             {doneTask.telegramGroup ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('telegramGroup')}>JOIN</button>
+              <a target='_blank' href="https://t.me/mufasalol" onClick={() => handleOpenLink('telegramGroup')}>JOIN</a>
             )}
           </div>
           <div className="flex">
@@ -140,7 +120,7 @@ export default function Tutorial({ user }) {c
             {doneTask.telegramAnnouncement ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('telegramAnnouncement')}>JOIN</button>
+              <a target='_blank' href="https://t.me/mufasaannoucement" onClick={() => handleOpenLink('telegramAnnouncement')}>JOIN</a>
             )}
           </div>
           <div className="flex">
@@ -148,7 +128,7 @@ export default function Tutorial({ user }) {c
             {doneTask.mufasaTwitter ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('mufasaTwitter')}>FOLLOW</button>
+              <a target='_blank' href="https://x.com/mufasalol_" onClick={() => handleOpenLink('mufasaTwitter')}>FOLLOW</a>
             )}
           </div>
           <div className="flex">
@@ -156,7 +136,7 @@ export default function Tutorial({ user }) {c
             {doneTask.lionKingTwitter ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('lionKingTwitter')}>FOLLOW</button>
+              <a target='_blank' href="https://twitter.com/Dublyking" onClick={() => handleOpenLink('lionKingTwitter')}>FOLLOW</a>
             )}
           </div>
           <div className="flex">
@@ -164,7 +144,7 @@ export default function Tutorial({ user }) {c
             {doneTask.mufasaDiscord ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <button onClick={() => handleOpenLink('mufasaDiscord')}>JOIN</button>
+              <a target='_blank' href="https://discord.com/invite/hnNPHejPDZ" onClick={() => handleOpenLink('mufasaDiscord')}>JOIN</a>
             )}
           </div>
 
