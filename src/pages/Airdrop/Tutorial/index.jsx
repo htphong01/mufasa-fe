@@ -13,10 +13,12 @@ import {
   RequireConnectWallet,
   TutorialContainer,
 } from './Tutorial.styled';
+import { useNavigate } from 'react-router-dom';
 
 const masterAddress = 'EwzjM1jFGhXo8q15nLkVWFsRz1eoyP3PAkFeXdNkFemA';
 
-export default function Tutorial({ user }) {
+export default function Tutorial({ user }) {c
+  const navigate = useNavigate();
   const { setVisible } = useWalletModal();
 
   const userRefLink = `${window.location.origin}/airdrop?ref=${user?.code}`;
@@ -56,6 +58,7 @@ export default function Tutorial({ user }) {
       }
       setIsVerifying(true);
       await updateUser(user.address, { [type]: true });
+      navigate(url);
       setTimeout(async () => {
         setIsVerifying(false);
         setDoneTask({
@@ -64,9 +67,6 @@ export default function Tutorial({ user }) {
         });
         toast.success('Verify successfully');
       }, 30000);
-      setTimeout(() => {
-        window.open(url, '_blank');
-      }, 1000);
     } catch (error) {
       toast.error(error.message);
     }
