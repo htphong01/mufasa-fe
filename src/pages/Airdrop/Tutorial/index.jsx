@@ -55,7 +55,7 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
-      window.open(url, '_blank');
+      window.open(url, '_top');
       updateUser(user.address, { [type]: true });
       setTimeout(async () => {
         setIsVerifying(false);
