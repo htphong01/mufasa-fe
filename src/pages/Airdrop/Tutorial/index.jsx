@@ -38,7 +38,8 @@ export default function Tutorial({ user }) {
   const handleOpenLink = async (type) => {
     try {
       setIsVerifying(true);
-      updateUser(user.address, { [type]: true });
+      await updateUser(user.address, { [type]: true });
+      toast.success('hello world')
       setTimeout(async () => {
         setIsVerifying(false);
         setDoneTask({
