@@ -35,36 +35,41 @@ export default function Tutorial({ user }) {
   });
 
   const handleOpenLink = async (type) => {
-    let url = '';
-    switch (type) {
-      case 'telegramGroup':
-        url = 'https://t.me/mufasalol';
-        break;
-      case 'telegramAnnouncement':
-        url = 'https://t.me/mufasaannoucement';
-        break;
-      case 'mufasaTwitter':
-        url = 'https://x.com/mufasalol_';
-        break;
-      case 'lionKingTwitter':
-        url = 'https://twitter.com/Dublyking';
-        break;
-      case 'mufasaDiscord':
-        url = 'https://discord.com/invite/hnNPHejPDZ';
-        break;
-    }
+    try {
+      let url = '';
+      switch (type) {
+        case 'telegramGroup':
+          url = 'https://t.me/mufasalol';
+          break;
+        case 'telegramAnnouncement':
+          url = 'https://t.me/mufasaannoucement';
+          break;
+        case 'mufasaTwitter':
+          url = 'https://x.com/mufasalol_';
+          break;
+        case 'lionKingTwitter':
+          url = 'https://twitter.com/Dublyking';
+          break;
+        case 'mufasaDiscord':
+          url = 'https://discord.com/invite/hnNPHejPDZ';
+          break;
+      }
 
-    setIsVerifying(true);
-    window.open(url, '_system');
-    setTimeout(async () => {
-      await updateUser(user.address, { [type]: true });
-      setIsVerifying(false);
-      setDoneTask({
-        ...doneTask,
-        [type]: true,
-      });
-      toast.success('Verify successfully');
-    }, 30000);
+      updateUser(user.address, { [type]: true });
+
+      setIsVerifying(true);
+      window.open(url, '_system');
+      setTimeout(async () => {
+        setIsVerifying(false);
+        setDoneTask({
+          ...doneTask,
+          [type]: true,
+        });
+        toast.success('Verify successfully');
+      }, 30000);
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   const handleCopyToClipboard = (text, type) => {
