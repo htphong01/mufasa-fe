@@ -54,20 +54,17 @@ export default function Tutorial({ user }) {
           url = 'https://discord.com/invite/hnNPHejPDZ';
           break;
       }
-
-      toast.success(user.address, type);
-      updateUser(user.address, { [type]: true });
-      toast.success('After');
       setIsVerifying(true);
-      window.open(url, '_system');
       setTimeout(async () => {
         setIsVerifying(false);
+        updateUser(user.address, { [type]: true });
         setDoneTask({
           ...doneTask,
           [type]: true,
         });
         toast.success('Verify successfully');
       }, 30000);
+      window.open(url, '_system');
     } catch (error) {
       toast.error(error.message);
     }
