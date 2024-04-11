@@ -53,20 +53,22 @@ export default function Tutorial({ user }) {
         url = 'https://discord.com/invite/hnNPHejPDZ';
         break;
     }
-    setTimeout(() => {
-      updateUser(user.address, { [type]: true });
-    }, 1000);
-
     setIsVerifying(true);
-    window.open(url, '_system');
-    setTimeout(() => {
+    updateUser(user.address, { [type]: true })
+      .then(() => {
+        window.open(url, '_system');
+      })
+      .catch((error) => {
+        throw error;
+      });
+    setTimeout(async () => {
       setIsVerifying(false);
       setDoneTask({
         ...doneTask,
         [type]: true,
       });
       toast.success('Verify successfully');
-    }, 30000);
+    }, 1000);
   };
 
   const handleCopyToClipboard = (text, type) => {

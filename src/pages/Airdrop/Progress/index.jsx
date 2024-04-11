@@ -43,13 +43,13 @@ export default function Progress({ user }) {
 
   const handleClaim = async () => {
     try {
-      setIsLoading(true);
-      const signature = await airdrop(wallet);
-      setSignature(signature);
-      await updateUser(user.address, { claimTx: signature });
-      fetchTokenProgress();
-      toast.success('Claim successfully');
-      setIsLoading(false);
+      // setIsLoading(true);
+      // const signature = await airdrop(wallet);
+      // setSignature(signature);
+      // await updateUser(user.address, { claimTx: signature });
+      // fetchTokenProgress();
+      // toast.success('Claim successfully');
+      // setIsLoading(false);
     } catch (error) {
       toast.error(error.message || 'An error occurred');
       console.log(error);
