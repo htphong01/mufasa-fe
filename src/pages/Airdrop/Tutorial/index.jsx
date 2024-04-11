@@ -35,40 +35,45 @@ export default function Tutorial({ user }) {
   });
 
   const handleOpenLink = async (type) => {
-    let url = '';
-    switch (type) {
-      case 'telegramGroup':
-        url = 'https://t.me/mufasalol';
-        break;
-      case 'telegramAnnouncement':
-        url = 'https://t.me/mufasaannoucement';
-        break;
-      case 'mufasaTwitter':
-        url = 'https://x.com/mufasalol_';
-        break;
-      case 'lionKingTwitter':
-        url = 'https://twitter.com/Dublyking';
-        break;
-      case 'mufasaDiscord':
-        url = 'https://discord.com/invite/hnNPHejPDZ';
-        break;
-    }
-    setIsVerifying(true);
-    updateUser(user.address, { [type]: true })
-      .then(() => {
-        window.open(url, '_system');
-      })
-      .catch((error) => {
-        throw error;
-      });
-    setTimeout(async () => {
+    try {
+      let url = '';
+      switch (type) {
+        case 'telegramGroup':
+          url = 'https://t.me/mufasalol';
+          break;
+        case 'telegramAnnouncement':
+          url = 'https://t.me/mufasaannoucement';
+          break;
+        case 'mufasaTwitter':
+          url = 'https://x.com/mufasalol_';
+          break;
+        case 'lionKingTwitter':
+          url = 'https://twitter.com/Dublyking';
+          break;
+        case 'mufasaDiscord':
+          url = 'https://discord.com/invite/hnNPHejPDZ';
+          break;
+      }
+      setIsVerifying(true);
+      updateUser(user.address, { [type]: true })
+        .then(() => {
+          setTimeout(async () => {
+            setIsVerifying(false);
+            setDoneTask({
+              ...doneTask,
+              [type]: true,
+            });
+            toast.success('Verify successfully');
+          }, 1000);
+          window.open(url, '_system');
+        })
+        .catch((error) => {
+          throw error;
+        });
+    } catch (error) {
       setIsVerifying(false);
-      setDoneTask({
-        ...doneTask,
-        [type]: true,
-      });
-      toast.success('Verify successfully');
-    }, 1000);
+      toast.error(error.message);
+    }
   };
 
   const handleCopyToClipboard = (text, type) => {
