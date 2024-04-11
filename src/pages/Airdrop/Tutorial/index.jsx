@@ -55,21 +55,16 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
-      updateUser(user.address, { [type]: true })
-        .then(() => {
-          setTimeout(async () => {
-            setIsVerifying(false);
-            setDoneTask({
-              ...doneTask,
-              [type]: true,
-            });
-            toast.success('Verify successfully');
-          }, 1000);
-          window.open(url, '_system');
-        })
-        .catch((error) => {
-          throw error;
+      window.open(url, '_system');
+      setTimeout(async () => {
+        await updateUser(user.address, { [type]: true });
+        setIsVerifying(false);
+        setDoneTask({
+          ...doneTask,
+          [type]: true,
         });
+        toast.success('Verify successfully');
+      }, 15000);
     } catch (error) {
       setIsVerifying(false);
       toast.error(error.message);
