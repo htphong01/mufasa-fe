@@ -55,7 +55,8 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
-      await updateUser(user.address, { [type]: true });
+      window.open(url, '_blank');
+      updateUser(user.address, { [type]: true });
       setTimeout(async () => {
         setIsVerifying(false);
         setDoneTask({
@@ -64,11 +65,6 @@ export default function Tutorial({ user }) {
         });
         toast.success('Verify successfully');
       }, 30000);
-      const link = document.createElement('a');
-      link.href = url;
-      link.target = '_system';
-      link.click();
-      link.remove();
     } catch (error) {
       toast.error(error.message);
     }
