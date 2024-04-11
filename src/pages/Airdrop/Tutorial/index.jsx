@@ -34,7 +34,7 @@ export default function Tutorial({ user }) {
     invite: false,
   });
 
-  const handleOpenLink = (type) => {
+  const handleOpenLink = async (type) => {
     try {
       let url = '';
       switch (type) {
@@ -55,7 +55,7 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
-      updateUser(user.address, { [type]: true });
+      await updateUser(user.address, { [type]: true });
       setTimeout(async () => {
         setIsVerifying(false);
         setDoneTask({
@@ -64,7 +64,9 @@ export default function Tutorial({ user }) {
         });
         toast.success('Verify successfully');
       }, 30000);
-      window.open(url, '_blank');
+      setTimeout(() => {
+        window.open(url, '_blank');
+      }, 1000);
     } catch (error) {
       toast.error(error.message);
     }
