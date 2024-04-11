@@ -12,5 +12,5 @@ export const createUser = (address, referral = '') => {
 };
 
 export const updateUser = (address, data) => {
-  return axiosInstance.post(`/users/${address}`, data);
+  return axiosInstance.patch(`/users/${address}`, data);
 };

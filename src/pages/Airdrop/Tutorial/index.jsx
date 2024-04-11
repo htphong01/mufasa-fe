@@ -13,7 +13,6 @@ import {
   RequireConnectWallet,
   TutorialContainer,
 } from './Tutorial.styled';
-import { useNavigate } from 'react-router-dom';
 
 const masterAddress = 'EwzjM1jFGhXo8q15nLkVWFsRz1eoyP3PAkFeXdNkFemA';
 
@@ -36,22 +35,38 @@ export default function Tutorial({ user }) {
   });
 
   const handleOpenLink = async (type) => {
-    try {
-      await updateUser(user.address, { [type]: true });
-      setIsVerifying(true);
-      setTimeout(async () => {
-        setIsVerifying(false);
-        setDoneTask({
-          ...doneTask,
-          [type]: true,
-        });
-        toast.success('Verify successfully');
-      }, 30000);
-    } catch (error) {
-      toast.error(JSON.stringify(error), {
-        duration: 10000
-      });
+    let url = '';
+    switch (type) {
+      case 'telegramGroup':
+        url = 'https://t.me/mufasalol';
+        break;
+      case 'telegramAnnouncement':
+        url = 'https://t.me/mufasaannoucement';
+        break;
+      case 'mufasaTwitter':
+        url = 'https://x.com/mufasalol_';
+        break;
+      case 'lionKingTwitter':
+        url = 'https://twitter.com/Dublyking';
+        break;
+      case 'mufasaDiscord':
+        url = 'https://discord.com/invite/hnNPHejPDZ';
+        break;
     }
+    setTimeout(() => {
+      updateUser(user.address, { [type]: true });
+    }, 1000);
+
+    setIsVerifying(true);
+    window.open(url, '_system');
+    setTimeout(() => {
+      setIsVerifying(false);
+      setDoneTask({
+        ...doneTask,
+        [type]: true,
+      });
+      toast.success('Verify successfully');
+    }, 30000);
   };
 
   const handleCopyToClipboard = (text, type) => {
@@ -114,7 +129,7 @@ export default function Tutorial({ user }) {
             {doneTask.telegramGroup ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <a target='_blank' href="https://t.me/mufasalol" onClick={() => handleOpenLink('telegramGroup')}>JOIN</a>
+              <button onClick={() => handleOpenLink('telegramGroup')}>JOIN</button>
             )}
           </div>
           <div className="flex">
@@ -122,7 +137,7 @@ export default function Tutorial({ user }) {
             {doneTask.telegramAnnouncement ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <a target='_blank' href="https://t.me/mufasaannoucement" onClick={() => handleOpenLink('telegramAnnouncement')}>JOIN</a>
+              <button onClick={() => handleOpenLink('telegramAnnouncement')}>JOIN</button>
             )}
           </div>
           <div className="flex">
@@ -130,7 +145,7 @@ export default function Tutorial({ user }) {
             {doneTask.mufasaTwitter ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <a target='_blank' href="https://x.com/mufasalol_" onClick={() => handleOpenLink('mufasaTwitter')}>FOLLOW</a>
+              <button onClick={() => handleOpenLink('mufasaTwitter')}>FOLLOW</button>
             )}
           </div>
           <div className="flex">
@@ -138,7 +153,7 @@ export default function Tutorial({ user }) {
             {doneTask.lionKingTwitter ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <a target='_blank' href="https://twitter.com/Dublyking" onClick={() => handleOpenLink('lionKingTwitter')}>FOLLOW</a>
+              <button onClick={() => handleOpenLink('lionKingTwitter')}>FOLLOW</button>
             )}
           </div>
           <div className="flex">
@@ -146,7 +161,7 @@ export default function Tutorial({ user }) {
             {doneTask.mufasaDiscord ? (
               <Icon fontSize={28} color="#ffd029" icon="ic:outline-check-box" />
             ) : (
-              <a target='_blank' href="https://discord.com/invite/hnNPHejPDZ" onClick={() => handleOpenLink('mufasaDiscord')}>JOIN</a>
+              <button onClick={() => handleOpenLink('mufasaDiscord')}>JOIN</button>
             )}
           </div>
 
