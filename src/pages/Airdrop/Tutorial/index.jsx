@@ -53,11 +53,11 @@ export default function Tutorial({ user }) {
         url = 'https://discord.com/invite/hnNPHejPDZ';
         break;
     }
-    await updateUser(user.address, { [type]: true });
 
     setIsVerifying(true);
     window.open(url, '_system');
     setTimeout(async () => {
+      await updateUser(user.address, { [type]: true });
       setIsVerifying(false);
       setDoneTask({
         ...doneTask,
