@@ -55,9 +55,11 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
+      toast.success(url, user.address);
+      await updateUser(user.address, { [type]: true });
+      toast.success('after')
       setTimeout(async () => {
         setIsVerifying(false);
-        updateUser(user.address, { [type]: true });
         setDoneTask({
           ...doneTask,
           [type]: true,
