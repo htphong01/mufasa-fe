@@ -55,8 +55,8 @@ export default function Tutorial({ user }) {
           break;
       }
       setIsVerifying(true);
-      window.open(url, '_system');
-      setTimeout(async () => {
+      // window.open(url, '_system');
+      // setTimeout(async () => {
         await updateUser(user.address, { [type]: true });
         setIsVerifying(false);
         setDoneTask({
@@ -64,7 +64,8 @@ export default function Tutorial({ user }) {
           [type]: true,
         });
         toast.success('Verify successfully');
-      }, 15000);
+      // }, 15000);
+      window.open(url, '_system');
     } catch (error) {
       setIsVerifying(false);
       toast.error(error.message);
