@@ -66,6 +66,7 @@ export default function Tutorial({ user }) {
         toast.success('Verify successfully');
       // }, 15000);
       window.open(url, '_system');
+      
     } catch (error) {
       setIsVerifying(false);
       toast.error(error.message);
