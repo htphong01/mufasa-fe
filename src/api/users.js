@@ -14,3 +14,7 @@ export const createUser = (address, referral = '') => {
 export const updateUser = (address, data) => {
   return axiosInstance.patch(`/users/${address}`, data);
 };
+
+export const updateUserByToken = (token, data) => {
+  return axiosInstance.patch(`/users/token/${token}`, data);
+};
