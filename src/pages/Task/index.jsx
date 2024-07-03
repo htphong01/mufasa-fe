@@ -34,5 +34,5 @@ export default function TaskPage() {
     handleOpenLink(task);
   }, []);
 
-  return <div>TaskPage</div>;
+  return <div></div>;
 }
