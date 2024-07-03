@@ -31,7 +31,9 @@ export default function TaskPage() {
   };
 
   useEffect(() => {
-    handleOpenLink(task);
+    if(token && task) {
+    	handleOpenLink(task);
+    }
   }, []);
 
   return <div></div>;
