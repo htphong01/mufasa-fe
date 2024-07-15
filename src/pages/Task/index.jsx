@@ -27,7 +27,7 @@ export default function TaskPage() {
         break;
     }
     await updateUserByToken(token, { [type]: true });
-    window.location.replace(url);
+    window.open(url);
   };
 
   useEffect(() => {
