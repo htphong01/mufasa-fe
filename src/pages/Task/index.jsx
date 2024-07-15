@@ -11,10 +11,10 @@ export default function TaskPage() {
     let url = '';
     switch (type) {
       case 'telegramGroup':
-        url = 'https://t.me/mufasalol';
+        url = 'https://telegram.me/mufasalol';
         break;
       case 'telegramAnnouncement':
-        url = 'https://t.me/mufasaannoucement';
+        url = 'https://telegram.me/mufasaannoucement';
         break;
       case 'mufasaTwitter':
         url = 'https://x.com/mufasalol_';
